@@ -1,0 +1,22 @@
+{
+  "name": "tiago-demo",
+  "version": "1.0.0",
+  "description": "互动游戏 SDK 接入 SDK",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cg-with-x/tiago-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cg-with-x/tiago-demo/issues"
+  },
+  "homepage": "https://github.com/cg-with-x/tiago-demo#readme",
+  "dependencies": {
+    "@byted-creative/tiago": "^0.0.12"
+  }
+}
