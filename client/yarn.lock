@@ -7,10 +7,10 @@
   resolved "https://registry.yarnpkg.com/@byted-creative/app_log/-/app_log-0.0.6.tgz#6a7f7ac41c6f2b2b05bf2f126bad97a04d4a2809"
   integrity sha512-7/iMQLyq1H2UuE0Jm+hVpWTCc6pn4+vwwpGieEkaUTgavSB83mhkQQLqsiGkbRPdBQES84z7YNSGxRY5KDAL3Q==
 
-"@byted-creative/cocos_pvp_ui@^0.0.13":
-  version "0.0.13"
-  resolved "https://registry.yarnpkg.com/@byted-creative/cocos_pvp_ui/-/cocos_pvp_ui-0.0.13.tgz#0a0a7ea56214ba3715ba5e938981eca40295bc00"
-  integrity sha512-ofz2SLwAXBlL4Pvjy+3rfJltNWupYPmEtQOHKXNFuHtyJJH9BWLc4VgmMIEY+AYF8lJA8lJm8qPVnJXB3AOhbA==
+"@byted-creative/cocos_pvp_ui@^0.0.14":
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/@byted-creative/cocos_pvp_ui/-/cocos_pvp_ui-0.0.14.tgz#61e275f1f83637431a08be740db7fb22945057a9"
+  integrity sha512-mwr2rBM3od/NK8tu8gXmyw0yplKAW6mt31XZSNSo/5OeFdKLQ9fBl/jP9pRb1S7XB41kOAaqiIULTQzVfHqoTg==
   dependencies:
     "@byted-creative/live_ui_source" "^0.0.2"
     "@byted-creative/pvp_microphone" "^0.0.4"
@@ -70,12 +70,12 @@
   dependencies:
     tslib "^1.10.0"
 
-"@byted-creative/tiago@^0.0.25":
-  version "0.0.25"
-  resolved "https://registry.yarnpkg.com/@byted-creative/tiago/-/tiago-0.0.25.tgz#71187c0dd49e7b1aa76052d4bf9db4ebe275df28"
-  integrity sha512-smIwDgBsLmQHztvdHL/4Fbl417FKf9ZqUCg9lmT8bK09LNBQs/1MvBHuRY4EfBRrpk4WHEasDe8j+j4mokXb/w==
+"@byted-creative/tiago@^0.0.26":
+  version "0.0.26"
+  resolved "https://registry.yarnpkg.com/@byted-creative/tiago/-/tiago-0.0.26.tgz#b20180b197875f9c02ba063758471d4b1873cb96"
+  integrity sha512-UvWRnvJTLIvIOy2P4/XWMwYkkZb37z5fYHd0gCEFcrAwiEdIY9x202SV4mgLlVOXooeD539uRZ/0FQc4IdHXug==
   dependencies:
-    "@byted-creative/cocos_pvp_ui" "^0.0.13"
+    "@byted-creative/cocos_pvp_ui" "^0.0.14"
     "@byted-creative/laya_pvp_ui" "^0.0.5"
     "@byted-creative/pvp-client" "^0.0.1-beta-2"
     "@byted-creative/pvp_match" "^0.0.4"
