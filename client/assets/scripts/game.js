@@ -48,6 +48,8 @@ cc.Class({
         if (message.length) {
             message.forEach(({ event, data }) => {
                 switch (event) {
+                    case 'game-start':
+                        break;
                     case 'environment':
                         dataManager.environment = data;
                         break;
@@ -59,7 +61,7 @@ cc.Class({
                         break;
                     case 'talk':
                         break;
-                    case 'end':
+                    case 'game-over':
                         break;
                     default:
                         break;

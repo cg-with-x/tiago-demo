@@ -6,6 +6,7 @@ class Game {
     this.players = {};
     this.playerCount = 0;
     this.sender = sender;
+    this.logicId = null;
   }
 
   onJoin(client) {
@@ -97,13 +98,15 @@ class Game {
   over() {
     this.state = 'over';
 
+    clearInterval(this.logicId);
+
     this.sender.add({
       event: 'game-over',
     });
   }
 
   doSomeLogic() {
-    setTimeout(() => {
+    this.logicId = setInterval(() => {
       this.sender.add({
         event: 'server-time',
         data: Date.now(),
