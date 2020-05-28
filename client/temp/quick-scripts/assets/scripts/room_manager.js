@@ -39,7 +39,9 @@ var RoomManager = function () {
                 // NOTE: 如果游戏场景比较复杂，可以预加载一下
                 cc.director.loadScene('game', function () {
                     if (_this.room) {
-                        _this.room.send('ready');
+                        _this.room.send(JSON.stringify({
+                            event: 'ready'
+                        }));
                     }
                 });
             });

@@ -16,7 +16,9 @@ class RoomManager {
             // NOTE: 如果游戏场景比较复杂，可以预加载一下
             cc.director.loadScene('game', () => {
                 if (this.room) {
-                    this.room.send('ready');
+                    this.room.send(JSON.stringify({
+                        event: 'ready',
+                    }));
                 }
             });
         });

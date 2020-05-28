@@ -46,6 +46,11 @@ cc.Class({
             }));
         }
     },
+    onClickReconnect: function onClickReconnect() {
+        if (_room_manager2.default.room) {
+            _room_manager2.default.room.reconnect();
+        }
+    },
     onRoomMessage: function onRoomMessage(messageStr) {
         var _this = this;
 
