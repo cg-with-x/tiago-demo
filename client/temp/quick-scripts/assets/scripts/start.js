@@ -8,6 +8,18 @@ var _tiago = require('@byted-creative/tiago');
 
 var _tiago2 = _interopRequireDefault(_tiago);
 
+var _room_manager = require('./room_manager');
+
+var _room_manager2 = _interopRequireDefault(_room_manager);
+
+var _data_manager = require('./data_manager');
+
+var _data_manager2 = _interopRequireDefault(_data_manager);
+
+var _utils = require('./utils');
+
+var _utils2 = _interopRequireDefault(_utils);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 if (_tiago2.default.utils.isTT()) {
@@ -25,9 +37,20 @@ if (_tiago2.default.utils.isTT()) {
 cc.Class({
     extends: cc.Component,
 
-    properties: {},
+    properties: {
+        labelNickName: cc.Label,
+        spriteAvatar: cc.Sprite
+    },
 
-    start: function start() {},
+    start: function start() {
+        if (_data_manager2.default.selfUserInfo) {
+            this.renderSelf(_data_manager2.default.selfUserInfo);
+        }
+    },
+    renderSelf: function renderSelf(info) {
+        this.labelNickName.string = info.nickName;
+        _utils2.default.renderAvatar(this.spriteAvatar, info.avatarUrl);
+    },
     onClickGetConfig: function onClickGetConfig() {
         var BUSINESS_SCENE = _tiago2.default.BUSINESS_SCENE;
 
@@ -53,8 +76,12 @@ cc.Class({
         }
     },
     onClickGetUserInfo: function onClickGetUserInfo() {
-        var userinfo = _tiago2.default.getUserInfo();
-        console.log(userinfo);
+        var info = _tiago2.default.getUserInfo();
+        console.log(info);
+
+        // NOTE: 这里只是简单的保存下来
+        _data_manager2.default.selfUserInfo = info;
+        this.renderSelf(_data_manager2.default.selfUserInfo);
     },
     onClickStartSingleMatch: function onClickStartSingleMatch() {
         var match = _tiago2.default.startSingleMatch();
@@ -74,6 +101,9 @@ cc.Class({
 
             // NOTE: 加入房间连麦
             _tiago2.default.joinRTCForGameRoom(room);
+
+            // 交由 room_manager 进行管理
+            _room_manager2.default.loadRoom(room);
         });
 
         match.on('error', function (error) {

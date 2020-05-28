@@ -63,10 +63,10 @@
   dependencies:
     tslib "^1.10.0"
 
-"@byted-creative/tiago@^0.0.12":
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/@byted-creative/tiago/-/tiago-0.0.12.tgz#2cc5bfbb367a20156d974384399d243a324ac40e"
-  integrity sha512-3COQFriBM0xcupVWS1uN7TTZL6BZgwAjmsz4pMdZzgDP1e/hyuA0zrWoGwIw0/MJMYXhIMbrbgOStX10Ih83+g==
+"@byted-creative/tiago@^0.0.15":
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/@byted-creative/tiago/-/tiago-0.0.15.tgz#48872a30e6d984f4c57ffce4c6b82a4514cf5c41"
+  integrity sha512-oGhHJ/AVjX0AwV3XYptr4WMsazkudFSTsqBYSeucI/FZnTbn/Z9WtnC89ZUeiF+ikN65Xf+C0l9SUDXZv8HhRw==
   dependencies:
     "@byted-creative/cocos_pvp_ui" "^0.0.4"
     "@byted-creative/laya_pvp_ui" "^0.0.4"

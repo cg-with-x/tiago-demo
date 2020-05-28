@@ -1,4 +1,7 @@
 import tiago from '@byted-creative/tiago';
+import roomManager from './room_manager';
+import dataManager from './data_manager';
+import utils from './utils';
 
 if (tiago.utils.isTT()) {
     tiago.init({
@@ -16,10 +19,19 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        labelNickName: cc.Label,
+        spriteAvatar: cc.Sprite,
     },
 
     start () {
-        
+        if (dataManager.selfUserInfo) {
+            this.renderSelf(dataManager.selfUserInfo);
+        }
+    },
+
+    renderSelf(info) {
+        this.labelNickName.string = info.nickName;
+        utils.renderAvatar(this.spriteAvatar, info.avatarUrl);
     },
 
     onClickGetConfig() {
@@ -45,8 +57,12 @@ cc.Class({
     },
 
     onClickGetUserInfo() {
-        const userinfo = tiago.getUserInfo();
-        console.log(userinfo);
+        const info = tiago.getUserInfo();
+        console.log(info);
+
+        // NOTE: 这里只是简单的保存下来
+        dataManager.selfUserInfo = info;
+        this.renderSelf(dataManager.selfUserInfo);
     },
 
     onClickStartSingleMatch() {
@@ -67,6 +83,9 @@ cc.Class({
             
             // NOTE: 加入房间连麦
             tiago.joinRTCForGameRoom(room);
+
+            // 交由 room_manager 进行管理
+            roomManager.loadRoom(room);
         });
         
         match.on('error', error => {
