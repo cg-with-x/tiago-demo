@@ -193,7 +193,9 @@
 	      case 'talk':
 	        game$1.onTalk(client, data);
 	        break;
-	      default: 
+	      case 'bye':
+	        game$1.over();
+	      default:
 	        break;
 	    }
 	  } catch (err) {

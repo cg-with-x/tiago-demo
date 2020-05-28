@@ -30,7 +30,9 @@ cc.Class({
 
         labelPlayerBTip: cc.Label,
         labelPlayerBNickName: cc.Label,
-        spritePlayerBAvatar: cc.Sprite
+        spritePlayerBAvatar: cc.Sprite,
+
+        labelServerTime: cc.Label
     },
 
     start: function start() {},
@@ -64,6 +66,8 @@ cc.Class({
                     data = _ref.data;
 
                 switch (event) {
+                    case 'game-start':
+                        break;
                     case 'environment':
                         _data_manager2.default.environment = data;
                         break;
@@ -72,10 +76,11 @@ cc.Class({
                         _this.renderPlayers();
                         break;
                     case 'server-time':
+
                         break;
                     case 'talk':
                         break;
-                    case 'end':
+                    case 'game-over':
                         break;
                     default:
                         break;

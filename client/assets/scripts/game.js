@@ -6,6 +6,9 @@ import dataManager from './data_manager';
 cc.Class({
     extends: cc.Component,
 
+    playerAOpenId: '',
+    playerBOpenId: '',
+
     properties: {
         labelPlayerATip: cc.Label,
         labelPlayerANickName: cc.Label,
@@ -14,13 +17,18 @@ cc.Class({
         labelPlayerBTip: cc.Label,
         labelPlayerBNickName: cc.Label,
         spritePlayerBAvatar: cc.Sprite,
+
+        labelServerTime: cc.Label,
     },
 
     start () {
 
     },
 
-    onClickStopGame() { 
+    onClickStopGame() {
+        roomManager.room.send(JSON.stringify({
+            event: 'bye',
+        }));
         roomManager.leave();
         cc.director.loadScene('start');
     },
@@ -58,10 +66,14 @@ cc.Class({
                         this.renderPlayers();
                         break;
                     case 'server-time':
+                        this.labelServerTime.string = `${dataManager.environment}: ${data}`;
                         break;
                     case 'talk':
+                        this.renderTalk(data);
                         break;
                     case 'game-over':
+                        roomManager.leave();
+                        cc.director.loadScene('start');
                         break;
                     default:
                         break;
@@ -75,14 +87,25 @@ cc.Class({
             const [ playerA, playerB ] = dataManager.twoPlayersInfo;
 
             if (playerA) {
+                this.playerAOpenId = playerA.openId;
                 this.labelPlayerANickName.string = playerA.nickName;
                 utils.renderAvatar(this.spritePlayerAAvatar, playerA.avatarUrl);
             }
 
             if (playerB) {
+                this.playerBOpenId = playerB.openId;
                 this.labelPlayerBNickName.string = playerB.nickName;
                 utils.renderAvatar(this.spritePlayerBAvatar, playerB.avatarUrl);
             }
+        }
+    },
+
+    renderTalk({ openId, data }) {
+        const tip = `战斗力 +${data}`;
+        if (openId === this.playerAOpenId) {
+            this.labelPlayerATip.string = tip;
+        } else if (openId === this.playerBOpenId) {
+            this.labelPlayerBTip.string = tip;
         }
     }
 

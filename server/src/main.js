@@ -30,7 +30,9 @@ room.on('message', ({ client, message }) => {
       case 'talk':
         game.onTalk(client, data);
         break;
-      default: 
+      case 'bye':
+        game.over();
+      default:
         break;
     }
   } catch (err) {
