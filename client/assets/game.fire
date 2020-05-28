@@ -2495,7 +2495,7 @@
     },
     "component": "",
     "_componentId": "7398acPTu1Gd6QvL0Y6RzII",
-    "handler": "onClickStopGame",
+    "handler": "onClickReconnect",
     "customEventData": ""
   },
   {
@@ -2540,6 +2540,9 @@
     },
     "spritePlayerBAvatar": {
       "__id__": 23
+    },
+    "labelServerTime": {
+      "__id__": 13
     },
     "_id": "12o2HxC6xIy6eHtbz3rqIv"
   }

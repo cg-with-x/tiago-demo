@@ -455,8 +455,8 @@
     "relativePath": "start.fire"
   },
   "66196d12-705f-42dc-b182-6a8b95583fc0": {
-    "asset": 1590656498244,
-    "meta": 1590656498253,
+    "asset": 1590674154913,
+    "meta": 1590674154921,
     "relativePath": "game.fire"
   },
   "50e3b6c3-c64a-421d-b49f-5dd8e77a2acc": {
@@ -480,8 +480,8 @@
     "relativePath": "scripts/room_manager.js"
   },
   "7398a70f-4eed-4677-a42f-2f463a473208": {
-    "asset": 1590673456357,
-    "meta": 1590673464916,
+    "asset": 1590674002087,
+    "meta": 1590674105616,
     "relativePath": "scripts/game.js"
   }
 }
