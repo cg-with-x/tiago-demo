@@ -38,27 +38,44 @@ cc.Class({
         _room_manager2.default.leave();
         cc.director.loadScene('start');
     },
-    onRoomMessage: function onRoomMessage(message) {
+    onClickTalk: function onClickTalk() {
+        if (_room_manager2.default.room) {
+            _room_manager2.default.room.send(JSON.stringify({
+                event: 'talk',
+                data: parseInt(Math.random() * 100)
+            }));
+        }
+    },
+    onRoomMessage: function onRoomMessage(messageStr) {
+        var _this = this;
+
         // NOTE: 消息体的内容是开发者自己定义的，这里的代码只是一种示例
         // NOTE: 开发者可以根据自己的房间脚本和协议，实现自身游戏的逻辑
-        var _JSON$parse = JSON.parse(message),
-            event = _JSON$parse.event,
-            data = _JSON$parse.data;
+        var message = JSON.parse(messageStr);
 
-        switch (event) {
-            case 'environment':
-                _data_manager2.default.environment = data;
-                break;
-            case 'info':
-                _data_manager2.default.twoPlayersInfo = data;
-                this.renderPlayers();
-                break;
-            case 'server-time':
-                break;
-            case 'end':
-                break;
-            default:
-                break;
+        if (message.length) {
+            message.forEach(function (_ref) {
+                var event = _ref.event,
+                    data = _ref.data;
+
+                switch (event) {
+                    case 'environment':
+                        _data_manager2.default.environment = data;
+                        break;
+                    case 'info':
+                        _data_manager2.default.twoPlayersInfo = data;
+                        _this.renderPlayers();
+                        break;
+                    case 'server-time':
+                        break;
+                    case 'talk':
+                        break;
+                    case 'end':
+                        break;
+                    default:
+                        break;
+                }
+            });
         }
     },
     renderPlayers: function renderPlayers() {

@@ -25,25 +25,46 @@ cc.Class({
         cc.director.loadScene('start');
     },
 
-    onRoomMessage(message) {
+    onClickTalk() {
+        if (roomManager.room) {
+            roomManager.room.send(JSON.stringify({
+                event: 'talk',
+                data: parseInt(Math.random() * 100),
+            }));
+        }
+    },
+
+    onClickReconnect() {
+        if (roomManager.room) {
+            roomManager.room.reconnect();
+        }
+    },
+
+    onRoomMessage(messageStr) {
         // NOTE: 消息体的内容是开发者自己定义的，这里的代码只是一种示例
         // NOTE: 开发者可以根据自己的房间脚本和协议，实现自身游戏的逻辑
-        const { event, data } = JSON.parse(message);
+        const message = JSON.parse(messageStr);
 
-        switch (event) {
-            case 'environment':
-                dataManager.environment = data;
-                break;
-            case 'info':
-                dataManager.twoPlayersInfo = data;
-                this.renderPlayers();
-                break;
-            case 'server-time':
-                break;
-            case 'end':
-                break;
-            default:
-                break;
+        if (message.length) {
+            message.forEach(({ event, data }) => {
+                switch (event) {
+                    case 'environment':
+                        dataManager.environment = data;
+                        break;
+                    case 'info':
+                        dataManager.twoPlayersInfo = data;
+                        this.renderPlayers();
+                        break;
+                    case 'server-time':
+                        break;
+                    case 'talk':
+                        break;
+                    case 'end':
+                        break;
+                    default:
+                        break;
+                }
+            })
         }
     },
 

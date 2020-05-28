@@ -29,12 +29,19 @@ var RoomManager = function () {
     _createClass(RoomManager, [{
         key: 'loadRoom',
         value: function loadRoom(room) {
+            var _this = this;
+
             this.room = room;
 
             room.on('open', function () {
                 console.log('[room] 进入游戏成功!');
 
-                cc.director.loadScene('game');
+                // NOTE: 如果游戏场景比较复杂，可以预加载一下
+                cc.director.loadScene('game', function () {
+                    if (_this.room) {
+                        _this.room.send('ready');
+                    }
+                });
             });
 
             room.on('message', function (_ref) {
@@ -44,7 +51,12 @@ var RoomManager = function () {
 
                 var scene = cc.director.getScene();
                 if (scene.name === 'game') {
-                    scene.getComponent('game').onRoomMessage(message);
+
+                    // NOTE: 也可以使用 Event 方式传递
+                    var canvas = scene.getChildByName('Canvas');
+                    if (canvas) {
+                        canvas.getComponent('game').onRoomMessage(message);
+                    }
                 }
             });
 
@@ -52,9 +64,9 @@ var RoomManager = function () {
                 console.log('[room] 房间关闭!');
 
                 // NOTE: 根据需要进行重新连接
-                setTimeout(function () {
-                    room.reconnect();
-                }, 1000);
+                // setTimeout(() => {
+                //     room.reconnect();
+                // }, 1000)
             });
 
             room.on('error', function (param) {
