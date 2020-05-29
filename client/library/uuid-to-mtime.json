@@ -445,7 +445,7 @@
     "relativePath": "model/primitives.fbx"
   },
   "3a246b35-3406-43dd-81b8-c5a6c75c96e2": {
-    "asset": 1590571160157,
+    "asset": 1590651326918,
     "meta": 1590556050402,
     "relativePath": "scripts"
   },
@@ -469,11 +469,6 @@
     "meta": 1590651496367,
     "relativePath": "scripts/data_manager.js"
   },
-  "9ff5c3b7-0288-4003-9191-cf5048c3a14b": {
-    "asset": 1590651350281,
-    "meta": 1590651496434,
-    "relativePath": "scripts/start.js"
-  },
   "7398a70f-4eed-4677-a42f-2f463a473208": {
     "asset": 1590674002087,
     "meta": 1590674105616,
@@ -483,5 +478,10 @@
     "asset": 1590675366201,
     "meta": 1590675367941,
     "relativePath": "scripts/room_manager.js"
+  },
+  "9ff5c3b7-0288-4003-9191-cf5048c3a14b": {
+    "asset": 1590721608914,
+    "meta": 1590721611347,
+    "relativePath": "scripts/start.js"
   }
 }
