@@ -3,24 +3,40 @@ import roomManager from './room_manager';
 import dataManager from './data_manager';
 import utils from './utils';
 
-if (tiago.utils.isTT()) {
-    tiago.init({
-        appId: 'tt5e982825c1b2d9a3',
-        debug: true,
-    }).then(() => {
-        console.log('tiago init success.');
-    }).catch(err => {
-        console.log(err);
-        // NOTE: 一般情况不会出错，我们会对错误情况做监控，游戏可以处理一些异常情况下的表现
-    });
-}
-
 cc.Class({
     extends: cc.Component,
 
     properties: {
         labelNickName: cc.Label,
         spriteAvatar: cc.Sprite,
+        nodeFeature: cc.Node,
+        nodeLoading: cc.Node,
+    },
+
+    onLoad () {
+        if (!dataManager.tiagoInited) {
+            this.nodeFeature.active = false;
+            this.nodeLoading.active = true;
+
+            tiago.init({
+                appId: 'tt5e982825c1b2d9a3',
+                debug: true,
+            }).then(() => {
+                console.log('tiago init success.');
+                dataManager.tiagoInited = true;
+
+                this.nodeFeature.active = true;
+                this.nodeLoading.active = false;
+            }).catch(err => {
+                console.log(err);
+                // NOTE: 一般情况不会出错，我们会对错误情况做监控，游戏可以处理一些异常情况下的表现
+            });
+        } else {
+            this.nodeFeature.active = true;
+            this.nodeLoading.active = false;
+        }
+
+        console.log('loaded')
     },
 
     start () {
@@ -35,7 +51,7 @@ cc.Class({
     },
 
     onClickGetConfig() {
-        const { BUSINESS_SCENE } = tiago;
+        const { BUSINESS_SCENE } = tiago;   
 
         const config = tiago.getConfig();
         console.log(config);

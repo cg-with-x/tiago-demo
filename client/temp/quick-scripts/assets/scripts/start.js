@@ -22,26 +22,43 @@ var _utils2 = _interopRequireDefault(_utils);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-if (_tiago2.default.utils.isTT()) {
-    _tiago2.default.init({
-        appId: 'tt5e982825c1b2d9a3',
-        debug: true
-    }).then(function () {
-        console.log('tiago init success.');
-    }).catch(function (err) {
-        console.log(err);
-        // NOTE: 一般情况不会出错，我们会对错误情况做监控，游戏可以处理一些异常情况下的表现
-    });
-}
-
 cc.Class({
     extends: cc.Component,
 
     properties: {
         labelNickName: cc.Label,
-        spriteAvatar: cc.Sprite
+        spriteAvatar: cc.Sprite,
+        nodeFeature: cc.Node,
+        nodeLoading: cc.Node
     },
 
+    onLoad: function onLoad() {
+        var _this = this;
+
+        if (!_data_manager2.default.tiagoInited) {
+            this.nodeFeature.active = false;
+            this.nodeLoading.active = true;
+
+            _tiago2.default.init({
+                appId: 'tt5e982825c1b2d9a3',
+                debug: true
+            }).then(function () {
+                console.log('tiago init success.');
+                _data_manager2.default.tiagoInited = true;
+
+                _this.nodeFeature.active = true;
+                _this.nodeLoading.active = false;
+            }).catch(function (err) {
+                console.log(err);
+                // NOTE: 一般情况不会出错，我们会对错误情况做监控，游戏可以处理一些异常情况下的表现
+            });
+        } else {
+            this.nodeFeature.active = true;
+            this.nodeLoading.active = false;
+        }
+
+        console.log('loaded');
+    },
     start: function start() {
         if (_data_manager2.default.selfUserInfo) {
             this.renderSelf(_data_manager2.default.selfUserInfo);
