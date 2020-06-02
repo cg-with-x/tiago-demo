@@ -11,10 +11,7 @@ const game = new Game({ sender });
 room.on('config', (config) => {
   console.log('[server-room] config:', config);
 
-  sender.add({
-    event: 'config',
-    data: config,
-  });
+  game.onConfig(config);
 });
 
 room.on('message', ({ client, message }) => {

@@ -450,8 +450,8 @@
     "relativePath": "scripts"
   },
   "5bc9b516-a8cc-41ce-8b46-c210a2866dc0": {
-    "asset": 1590765021100,
-    "meta": 1590765021107,
+    "asset": 1591116320971,
+    "meta": 1591116320980,
     "relativePath": "start.fire"
   },
   "66196d12-705f-42dc-b182-6a8b95583fc0": {
@@ -464,11 +464,6 @@
     "meta": 1590647429268,
     "relativePath": "scripts/utils.js"
   },
-  "7398a70f-4eed-4677-a42f-2f463a473208": {
-    "asset": 1590674002087,
-    "meta": 1590674105616,
-    "relativePath": "scripts/game.js"
-  },
   "001f7234-ef8b-49c3-9557-5a76607b6ab9": {
     "asset": 1590675366201,
     "meta": 1590675367941,
@@ -479,9 +474,14 @@
     "meta": 1590765551965,
     "relativePath": "scripts/data_manager.js"
   },
+  "7398a70f-4eed-4677-a42f-2f463a473208": {
+    "asset": 1591114586856,
+    "meta": 1591114591164,
+    "relativePath": "scripts/game.js"
+  },
   "9ff5c3b7-0288-4003-9191-cf5048c3a14b": {
-    "asset": 1590766123372,
-    "meta": 1590766124856,
+    "asset": 1591112395520,
+    "meta": 1591114591166,
     "relativePath": "scripts/start.js"
   }
 }

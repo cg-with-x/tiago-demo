@@ -1,4 +1,5 @@
 const utils = require('./utils');
+const AI = require('./ai');
 
 class Game {
   constructor({ sender }) {
@@ -7,6 +8,36 @@ class Game {
     this.playerCount = 0;
     this.sender = sender;
     this.logicId = null;
+    this.config = null;
+  }
+
+  onConfig(config) {
+    this.config = config;
+
+    // 房间由匹配服务创建
+    if (config.fromMatch) {
+      if (config.AIInfos && config.AIInfos.length) {
+        // NOTE: 兼容 AI 逻辑，本游戏仅支持一个 AI
+        this.onJoinAI(config.AIInfos[0]);
+      }
+    }
+  }
+
+  onJoinAI(aiInfo) {
+    const openId = utils.getAIOpenId(aiInfo);
+    const aiController = new AI({
+      id: openId,
+      game: this,
+      sender: this.sender,
+    });
+
+    this.players[openId] = {
+      info: aiInfo,
+      isReady: true,
+      isAI: true,
+      aiController,
+    };
+    this.playerCount++;
   }
 
   onJoin(client) {
@@ -18,6 +49,14 @@ class Game {
         isReady: false,
       };
       this.playerCount++;
+
+      this.sender.add({
+        event: 'game-info',
+        data: {
+          config: this.config,
+          client: client,
+        },
+      });
     } else {
       // NOTE: 再次加入
     }
@@ -93,9 +132,12 @@ class Game {
     })
 
     this.doSomeLogic();
+    this.startAILogic();
   }
 
   over() {
+    this.stopAILogic();
+
     this.state = 'over';
 
     clearInterval(this.logicId);
@@ -112,6 +154,28 @@ class Game {
         data: Date.now(),
       });
     }, 1000);
+  }
+
+  startAILogic() {
+    for (const key in this.players) {
+      if (this.players.hasOwnProperty(key)) {
+        const player = this.players[key];
+        if (player.isAI) {
+          player.aiController.start();
+        }
+      }
+    }
+  }
+
+  stopAILogic() {
+    for (const key in this.players) {
+      if (this.players.hasOwnProperty(key)) {
+        const player = this.players[key];
+        if (player.isAI) {
+          player.aiController.stop();
+        }
+      }
+    }
   }
 }
 

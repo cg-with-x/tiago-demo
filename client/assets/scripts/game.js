@@ -88,13 +88,15 @@ cc.Class({
 
             if (playerA) {
                 this.playerAOpenId = playerA.openId;
-                this.labelPlayerANickName.string = playerA.nickName;
+                const name = playerA.isAI ? `AI: ${playerA.nickName}` : playerA.nickName;
+                this.labelPlayerANickName.string = name;
                 utils.renderAvatar(this.spritePlayerAAvatar, playerA.avatarUrl);
             }
 
             if (playerB) {
                 this.playerBOpenId = playerB.openId;
-                this.labelPlayerBNickName.string = playerB.nickName;
+                const name = playerB.isAI ? `AI: ${playerB.nickName}` : playerB.nickName;
+                this.labelPlayerBNickName.string = name;
                 utils.renderAvatar(this.spritePlayerBAvatar, playerB.avatarUrl);
             }
         }

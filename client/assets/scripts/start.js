@@ -62,8 +62,9 @@ cc.Class({
             // 当前是直播场景
             const params = scene[currentScene];
 
-            if (params.isAIRequired) {  
-                // NOTE: 补充 AI 逻辑
+            if (params.isNewcomer) {  
+                // NOTE: 补充新手逻辑
+                console.log('新手首次加入游戏');
             }
             
             // NOTE: 针对直播场景，调整使用直播专用的 UI，或处理其他特殊逻辑
@@ -99,6 +100,33 @@ cc.Class({
             
             // NOTE: 加入房间连麦
             tiago.joinRTCForGameRoom(room);
+
+            // 交由 room_manager 进行管理
+            roomManager.loadRoom(room);
+        });
+        
+        match.on('error', error => {
+            console.log(error);
+        });
+    },
+
+    onClickStartSingleMatchAI() {
+        const match = tiago.startSingleMatch({
+            isAutoAppendAI: true, // 支持 AI 逻辑
+        });
+
+        match.on('match-success', result => {
+            // 获得匹配成功后的用户信息
+            console.log(result);
+        });
+        
+        match.on('create-game-room-success', result => {
+            console.log(result);
+
+            // NOTE: 随后可以加入游戏房间
+            const room = tiago.joinGameRoom({
+                roomNum: result.roomNum,
+            });
 
             // 交由 room_manager 进行管理
             roomManager.loadRoom(room);

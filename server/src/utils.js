@@ -5,5 +5,10 @@ module.exports = {
         return client.extra.openId;
       }
     }
+  },
+
+  getAIOpenId(info) {
+    info.openId = info.openId || 'fake-ai-openid';
+    return info.openId;
   }
 };

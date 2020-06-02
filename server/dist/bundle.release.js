@@ -43,8 +43,57 @@
 	        return client.extra.openId;
 	      }
 	    }
+	  },
+
+	  getAIOpenId(info) {
+	    info.openId = info.openId || 'fake-ai-openid';
+	    return info.openId;
 	  }
 	};
+
+	class AI {
+	  constructor({
+	    id,
+	    game,
+	    sender,
+	  }) {
+	    this.id = id;
+	    this.game = game;
+	    this.sender = sender;
+	    this.logicId = null;
+	  }
+
+	  start() {
+	    // 模拟 AI 的逻辑
+	    const interval = Math.random() * 1000 + 500;
+
+	    this.logicId = setTimeout(() => {
+	      this.doTalk();
+	      this.start();
+	    }, interval);
+	  }
+
+	  doTalk() {
+	    // AI 的攻击力额外增加 10 点
+	    const value = parseInt(Math.random() * 100 + 10);
+	    
+	    // NOTE: 服务端模拟真实用户逻辑
+	    this.sender.add({
+	      event: 'talk',
+	      data: {
+	        openId: this.id,
+	        data: value,
+	      },
+	    });
+	  }
+
+	  stop() {
+	    // 结束模拟
+	    clearTimeout(this.logicId);
+	  }
+	}
+
+	var ai = AI;
 
 	class Game {
 	  constructor({ sender }) {
@@ -53,6 +102,36 @@
 	    this.playerCount = 0;
 	    this.sender = sender;
 	    this.logicId = null;
+	    this.config = null;
+	  }
+
+	  onConfig(config) {
+	    this.config = config;
+
+	    // 房间由匹配服务创建
+	    if (config.fromMatch) {
+	      if (config.AIInfos && config.AIInfos.length) {
+	        // NOTE: 兼容 AI 逻辑，本游戏仅支持一个 AI
+	        this.onJoinAI(config.AIInfos[0]);
+	      }
+	    }
+	  }
+
+	  onJoinAI(aiInfo) {
+	    const openId = utils.getAIOpenId(aiInfo);
+	    const aiController = new ai({
+	      id: openId,
+	      game: this,
+	      sender: this.sender,
+	    });
+
+	    this.players[openId] = {
+	      info: aiInfo,
+	      isReady: true,
+	      isAI: true,
+	      aiController,
+	    };
+	    this.playerCount++;
 	  }
 
 	  onJoin(client) {
@@ -64,6 +143,14 @@
 	        isReady: false,
 	      };
 	      this.playerCount++;
+
+	      this.sender.add({
+	        event: 'game-info',
+	        data: {
+	          config: this.config,
+	          client: client,
+	        },
+	      });
 	    }
 	  }
 
@@ -137,9 +224,12 @@
 	    });
 
 	    this.doSomeLogic();
+	    this.startAILogic();
 	  }
 
 	  over() {
+	    this.stopAILogic();
+
 	    this.state = 'over';
 
 	    clearInterval(this.logicId);
@@ -156,6 +246,28 @@
 	        data: Date.now(),
 	      });
 	    }, 1000);
+	  }
+
+	  startAILogic() {
+	    for (const key in this.players) {
+	      if (this.players.hasOwnProperty(key)) {
+	        const player = this.players[key];
+	        if (player.isAI) {
+	          player.aiController.start();
+	        }
+	      }
+	    }
+	  }
+
+	  stopAILogic() {
+	    for (const key in this.players) {
+	      if (this.players.hasOwnProperty(key)) {
+	        const player = this.players[key];
+	        if (player.isAI) {
+	          player.aiController.stop();
+	        }
+	      }
+	    }
 	  }
 	}
 
@@ -174,10 +286,7 @@
 	room$1.on('config', (config) => {
 	  console.log('[server-room] config:', config);
 
-	  sender$1.add({
-	    event: 'config',
-	    data: config,
-	  });
+	  game$1.onConfig(config);
 	});
 
 	room$1.on('message', ({ client, message }) => {

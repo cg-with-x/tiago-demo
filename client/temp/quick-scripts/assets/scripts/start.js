@@ -83,9 +83,10 @@ cc.Class({
             // 当前是直播场景
             var params = scene[currentScene];
 
-            if (params.isAIRequired) {}
-            // NOTE: 补充 AI 逻辑
-
+            if (params.isNewcomer) {
+                // NOTE: 补充新手逻辑
+                console.log('新手首次加入游戏');
+            }
 
             // NOTE: 针对直播场景，调整使用直播专用的 UI，或处理其他特殊逻辑
         } else if (currentScene === BUSINESS_SCENE.Wonderland) {
@@ -118,6 +119,32 @@ cc.Class({
 
             // NOTE: 加入房间连麦
             _tiago2.default.joinRTCForGameRoom(room);
+
+            // 交由 room_manager 进行管理
+            _room_manager2.default.loadRoom(room);
+        });
+
+        match.on('error', function (error) {
+            console.log(error);
+        });
+    },
+    onClickStartSingleMatchAI: function onClickStartSingleMatchAI() {
+        var match = _tiago2.default.startSingleMatch({
+            isAutoAppendAI: true // 支持 AI 逻辑
+        });
+
+        match.on('match-success', function (result) {
+            // 获得匹配成功后的用户信息
+            console.log(result);
+        });
+
+        match.on('create-game-room-success', function (result) {
+            console.log(result);
+
+            // NOTE: 随后可以加入游戏房间
+            var room = _tiago2.default.joinGameRoom({
+                roomNum: result.roomNum
+            });
 
             // 交由 room_manager 进行管理
             _room_manager2.default.loadRoom(room);
