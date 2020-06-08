@@ -6,7 +6,7 @@ import dataManager from './data_manager';
 cc.Class({
     extends: cc.Component,
 
-    playerAOpenId: '',
+    playerAOpenId: '', 
     playerBOpenId: '',
 
     properties: {
