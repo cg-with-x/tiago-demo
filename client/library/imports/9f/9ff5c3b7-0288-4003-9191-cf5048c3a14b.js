@@ -153,7 +153,8 @@ cc.Class({
         match.on('error', function (error) {
             console.log(error);
         });
-    }
+    },
+    onClickMakeTeam: function onClickMakeTeam() {}
 });
 
 cc._RF.pop();

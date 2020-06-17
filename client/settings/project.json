@@ -12,7 +12,7 @@
   "design-resolution-width": 750,
   "design-resolution-height": 1334,
   "fit-width": true,
-  "fit-height": false,
+  "fit-height": true,
   "use-project-simulator-setting": false,
   "simulator-orientation": false,
   "use-customize-simulator": true,
@@ -30,5 +30,6 @@
     "live": {
       "enable": false
     }
-  }
+  },
+  "start-scene": "current"
 }

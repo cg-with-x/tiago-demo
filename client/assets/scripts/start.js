@@ -136,4 +136,8 @@ cc.Class({
             console.log(error);
         });
     },
+
+    onClickMakeTeam() {
+        
+    }
 });
