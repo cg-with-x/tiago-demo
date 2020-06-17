@@ -137,7 +137,44 @@ cc.Class({
         });
     },
 
-    onClickMakeTeam() {
+    onClickMakeTeam(event, userData) {
+        // userData: '2', '2-ai', 符合这类格式
+        let [ size, ai ] = userData.split('-');
+        size = parseInt(size);
+        ai = !!ai;
+
+        // NOTE: 创建一个队伍，匹配时进行 Single 类型匹配
+        const team = tiago.makeTeam({
+            teamSize: size,  // 2-9 人
+            isAutoJoinRTC: true, // 默认组队时进行连麦
+            match: {
+                type: tiago.MATCH_TYPE.Single, // SINGLE, NVN,
+                minPlayerCount: size - 1, // 补充 1 个 AI
+                isAutoAppendAI: ai, // 配合 SINGLE，字段，默认不补充 AI，NVN 匹配时不支持 AI
+                // gameRoomScriptId: '', // 房间服务适用、指定不同的游戏房间脚本 ID、配合 IDE 上传房间脚本时使用
+                // disableAutoCreateGameRoom: true, // 默认自动创建游戏房间，可以关闭（生肖派对），关闭后，gameRoomScriptId 字段失效
+            },
+        });
+
+        team.on('match-success', result => {
+            // 获得匹配成功后的用户信息
+            console.log(result);
+        });
         
+        team.on('create-game-room-success', result => {
+            console.log(result);
+
+            // NOTE: 随后可以加入游戏房间
+            const room = tiago.joinGameRoom({
+                roomNum: result.roomNum,
+            });
+
+            // 交由 room_manager 进行管理
+            roomManager.loadRoom(room);
+        });
+        
+        team.on('error', error => {
+            console.log(error);
+        });
     }
 });

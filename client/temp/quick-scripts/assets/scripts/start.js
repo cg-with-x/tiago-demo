@@ -4,6 +4,8 @@ cc._RF.push(module, '9ff5cO3AohAA5GRz1BIw6FL', 'start', __filename);
 
 'use strict';
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 var _tiago = require('@byted-creative/tiago');
 
 var _tiago2 = _interopRequireDefault(_tiago);
@@ -154,7 +156,50 @@ cc.Class({
             console.log(error);
         });
     },
-    onClickMakeTeam: function onClickMakeTeam() {}
+    onClickMakeTeam: function onClickMakeTeam(event, userData) {
+        // userData: '2', '2-ai', 符合这类格式
+        var _userData$split = userData.split('-'),
+            _userData$split2 = _slicedToArray(_userData$split, 2),
+            size = _userData$split2[0],
+            ai = _userData$split2[1];
+
+        size = parseInt(size);
+        ai = !!ai;
+
+        // NOTE: 创建一个队伍，匹配时进行 Single 类型匹配
+        var team = _tiago2.default.makeTeam({
+            teamSize: size, // 2-9 人
+            isAutoJoinRTC: true, // 默认组队时进行连麦
+            match: {
+                type: _tiago2.default.MATCH_TYPE.Single, // SINGLE, NVN,
+                minPlayerCount: size - 1, // 补充 1 个 AI
+                isAutoAppendAI: ai // 配合 SINGLE，字段，默认不补充 AI，NVN 匹配时不支持 AI
+                // gameRoomScriptId: '', // 房间服务适用、指定不同的游戏房间脚本 ID、配合 IDE 上传房间脚本时使用
+                // disableAutoCreateGameRoom: true, // 默认自动创建游戏房间，可以关闭（生肖派对），关闭后，gameRoomScriptId 字段失效
+            }
+        });
+
+        team.on('match-success', function (result) {
+            // 获得匹配成功后的用户信息
+            console.log(result);
+        });
+
+        team.on('create-game-room-success', function (result) {
+            console.log(result);
+
+            // NOTE: 随后可以加入游戏房间
+            var room = _tiago2.default.joinGameRoom({
+                roomNum: result.roomNum
+            });
+
+            // 交由 room_manager 进行管理
+            _room_manager2.default.loadRoom(room);
+        });
+
+        team.on('error', function (error) {
+            console.log(error);
+        });
+    }
 });
 
 cc._RF.pop();

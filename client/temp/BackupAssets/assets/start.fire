@@ -2774,8 +2774,8 @@
     },
     "component": "",
     "_componentId": "9ff5cO3AohAA5GRz1BIw6FL",
-    "handler": "onClickStartSingleMatchAI",
-    "customEventData": ""
+    "handler": "onClickMakeTeam",
+    "customEventData": "2-ai"
   },
   {
     "__type__": "cc.Node",
@@ -3158,8 +3158,8 @@
     },
     "component": "",
     "_componentId": "9ff5cO3AohAA5GRz1BIw6FL",
-    "handler": "onClickStartSingleMatchAI",
-    "customEventData": ""
+    "handler": "onClickMakeTeam",
+    "customEventData": "2"
   },
   {
     "__type__": "cc.Node",
@@ -3542,8 +3542,8 @@
     },
     "component": "",
     "_componentId": "9ff5cO3AohAA5GRz1BIw6FL",
-    "handler": "onClickStartSingleMatchAI",
-    "customEventData": ""
+    "handler": "onClickMakeTeam",
+    "customEventData": "6-ai"
   },
   {
     "__type__": "cc.Node",
@@ -3926,8 +3926,8 @@
     },
     "component": "",
     "_componentId": "9ff5cO3AohAA5GRz1BIw6FL",
-    "handler": "onClickStartSingleMatchAI",
-    "customEventData": ""
+    "handler": "onClickMakeTeam",
+    "customEventData": "6"
   },
   {
     "__type__": "cc.Node",
@@ -4131,7 +4131,7 @@
         1,
         1,
         1,
-        0
+        1
       ]
     },
     "_eulerAngles": {
@@ -4778,7 +4778,7 @@
     "component": "",
     "_componentId": "9ff5cO3AohAA5GRz1BIw6FL",
     "handler": "onClickMakeTeam",
-    "customEventData": "2"
+    "customEventData": "3"
   },
   {
     "__type__": "cc.Node",
@@ -5162,7 +5162,7 @@
     "component": "",
     "_componentId": "9ff5cO3AohAA5GRz1BIw6FL",
     "handler": "onClickMakeTeam",
-    "customEventData": "2"
+    "customEventData": "4"
   },
   {
     "__type__": "cc.Node",
@@ -5546,7 +5546,7 @@
     "component": "",
     "_componentId": "9ff5cO3AohAA5GRz1BIw6FL",
     "handler": "onClickMakeTeam",
-    "customEventData": "2"
+    "customEventData": "5"
   },
   {
     "__type__": "cc.Node",
@@ -5930,7 +5930,7 @@
     "component": "",
     "_componentId": "9ff5cO3AohAA5GRz1BIw6FL",
     "handler": "onClickMakeTeam",
-    "customEventData": "2"
+    "customEventData": "6"
   },
   {
     "__type__": "cc.Node",
@@ -6314,7 +6314,7 @@
     "component": "",
     "_componentId": "9ff5cO3AohAA5GRz1BIw6FL",
     "handler": "onClickMakeTeam",
-    "customEventData": "2"
+    "customEventData": "7"
   },
   {
     "__type__": "cc.Node",
@@ -6698,7 +6698,7 @@
     "component": "",
     "_componentId": "9ff5cO3AohAA5GRz1BIw6FL",
     "handler": "onClickMakeTeam",
-    "customEventData": "2"
+    "customEventData": "8"
   },
   {
     "__type__": "cc.Node",
@@ -7082,7 +7082,7 @@
     "component": "",
     "_componentId": "9ff5cO3AohAA5GRz1BIw6FL",
     "handler": "onClickMakeTeam",
-    "customEventData": "2"
+    "customEventData": "9"
   },
   {
     "__type__": "cc.Node",

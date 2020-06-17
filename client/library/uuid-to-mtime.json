@@ -70,8 +70,8 @@
     "relativePath": "scripts"
   },
   "5bc9b516-a8cc-41ce-8b46-c210a2866dc0": {
-    "asset": 1592376630041,
-    "meta": 1592376630051,
+    "asset": 1592377906899,
+    "meta": 1592377906910,
     "relativePath": "start.fire"
   },
   "66196d12-705f-42dc-b182-6a8b95583fc0": {
@@ -475,13 +475,13 @@
     "relativePath": "model/primitives.fbx"
   },
   "7398a70f-4eed-4677-a42f-2f463a473208": {
-    "asset": 1592295823058,
-    "meta": 1592295824632,
+    "asset": 1592377575642,
+    "meta": 1592377579472,
     "relativePath": "scripts/game.js"
   },
   "9ff5c3b7-0288-4003-9191-cf5048c3a14b": {
-    "asset": 1592376392986,
-    "meta": 1592376405727,
+    "asset": 1592378144718,
+    "meta": 1592378149250,
     "relativePath": "scripts/start.js"
   }
 }
