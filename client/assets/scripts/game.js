@@ -31,6 +31,9 @@ cc.Class({
         }));
         roomManager.leave();
         cc.director.loadScene('start');
+
+        // NOTE: 如果之前在一个组队中，则回到队伍
+        if (dataManager.currentTeam) dataManager.currentTeam.return();
     },
 
     onClickTalk() {
@@ -74,6 +77,8 @@ cc.Class({
                     case 'game-over':
                         roomManager.leave();
                         cc.director.loadScene('start');
+                        // NOTE: 如果之前在一个组队中，则回到队伍
+                        if (dataManager.currentTeam) dataManager.currentTeam.return();
                         break;
                     default:
                         break;

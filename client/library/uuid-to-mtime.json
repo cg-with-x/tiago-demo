@@ -70,8 +70,8 @@
     "relativePath": "scripts"
   },
   "5bc9b516-a8cc-41ce-8b46-c210a2866dc0": {
-    "asset": 1592482027477,
-    "meta": 1592482027488,
+    "asset": 1592482353622,
+    "meta": 1592482353633,
     "relativePath": "start.fire"
   },
   "66196d12-705f-42dc-b182-6a8b95583fc0": {
@@ -474,24 +474,24 @@
     "meta": 1592482286980,
     "relativePath": "room.fire"
   },
-  "b3196052-d5da-45b7-b37d-c5c2ba59ae8e": {
-    "asset": 1592473517443,
-    "meta": 1592473863502,
-    "relativePath": "scripts/data_manager.js"
-  },
-  "9ff5c3b7-0288-4003-9191-cf5048c3a14b": {
-    "asset": 1592473512394,
-    "meta": 1592473863565,
-    "relativePath": "scripts/start.js"
-  },
   "30cfe963-9f1a-484c-854f-513b76fb223b": {
     "asset": 1592474585204,
     "meta": 1592476045795,
     "relativePath": "scripts/room.js"
   },
   "7398a70f-4eed-4677-a42f-2f463a473208": {
-    "asset": 1592482201921,
-    "meta": 1592482202388,
+    "asset": 1592482474160,
+    "meta": 1592482475843,
     "relativePath": "scripts/game.js"
+  },
+  "b3196052-d5da-45b7-b37d-c5c2ba59ae8e": {
+    "asset": 1592485397605,
+    "meta": 1592485856146,
+    "relativePath": "scripts/data_manager.js"
+  },
+  "9ff5c3b7-0288-4003-9191-cf5048c3a14b": {
+    "asset": 1592485848539,
+    "meta": 1592485856146,
+    "relativePath": "scripts/start.js"
   }
 }

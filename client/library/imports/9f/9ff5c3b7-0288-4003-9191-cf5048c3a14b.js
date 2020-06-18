@@ -43,7 +43,10 @@ cc.Class({
 
             _tiago2.default.init({
                 appId: 'tt5e982825c1b2d9a3',
-                debug: true
+                debug: true,
+                onJoinTeam: function onJoinTeam(team) {
+                    _this.onJoinTeam(team);
+                } // 2.0 的主要功能，组队，会在受邀加入队伍、或自己创建队伍后触发！
             }).then(function () {
                 console.log('tiago init success.');
                 _data_manager2.default.tiagoInited = true;
@@ -170,8 +173,11 @@ cc.Class({
         console.log(size);
         console.log(ai);
 
+        // NOTE: 创建新队伍前，先清理一下
+        _data_manager2.default.currentTeam = null;
+
         // NOTE: 创建一个队伍，匹配时进行 Single 类型匹配
-        var team = _tiago2.default.makeTeam({
+        _tiago2.default.makeTeam({
             teamSize: size, // 2-9 人
             isAutoJoinRTC: true, // 默认组队时进行连麦
             match: {
@@ -182,6 +188,15 @@ cc.Class({
                 // disableAutoCreateGameRoom: true, // 默认自动创建游戏房间，可以关闭（生肖派对），关闭后，gameRoomScriptId 字段失效
             }
         });
+
+        // NOTE: 后续的逻辑，都会由 tiago init 时传入的 `onJoinTeam` 回调触发
+    },
+    onClickRoom: function onClickRoom() {
+        cc.director.loadScene('room');
+    },
+    onJoinTeam: function onJoinTeam(team) {
+        // NOTE: 可以在适当的时机进行清理，例如：在每次 makeTeam 之前。
+        _data_manager2.default.currentTeam = team;
 
         team.on('match-success', function (result) {
             // 获得匹配成功后的用户信息
@@ -203,9 +218,6 @@ cc.Class({
         team.on('error', function (error) {
             console.log(error);
         });
-    },
-    onClickRoom: function onClickRoom() {
-        cc.director.loadScene('room');
     }
 });
 
