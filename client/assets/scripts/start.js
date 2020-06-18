@@ -24,6 +24,7 @@ cc.Class({
             }).then(() => {
                 console.log('tiago init success.');
                 dataManager.tiagoInited = true;
+                dataManager.tiago = tiago;
 
                 this.nodeFeature.active = true;
                 this.nodeLoading.active = false;
@@ -143,6 +144,9 @@ cc.Class({
         size = parseInt(size);
         ai = !!ai;
 
+        console.log(size);
+        console.log(ai);
+
         // NOTE: 创建一个队伍，匹配时进行 Single 类型匹配
         const team = tiago.makeTeam({
             teamSize: size,  // 2-9 人
@@ -176,5 +180,9 @@ cc.Class({
         team.on('error', error => {
             console.log(error);
         });
+    },
+
+    onClickRoom() {
+        cc.director.loadScene('room');
     }
 });

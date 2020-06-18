@@ -4,9 +4,9 @@ import replace from '@rollup/plugin-replace';
 
 export default [
   {
-    input: 'src/main.js',
+    input: 'src/1v1/main.js',
     output: {
-      file: 'dist/bundle.test.js',
+      file: 'dist/1v1.test.js',
       format: 'iife'
     },
     plugins: [
@@ -18,9 +18,9 @@ export default [
     ]
   },
   {
-    input: 'src/main.js',
+    input: 'src/1v1/main.js',
     output: {
-      file: 'dist/bundle.release.js',
+      file: 'dist/1v1.release.js',
       format: 'iife'
     },
     plugins: [
@@ -31,4 +31,32 @@ export default [
       }),
     ]
   },
+  {
+    input: 'src/multi-player/main.js',
+    output: {
+      file: 'dist/multi-player.test.js',
+      format: 'iife'
+    },
+    plugins: [
+      resolve(),
+      commonjs(),
+      replace({
+        __BUILD_ENV__: 'test',
+      }),
+    ]
+  },
+  {
+    input: 'src/multi-player/main.js',
+    output: {
+      file: 'dist/multi-player.release.js',
+      format: 'iife'
+    },
+    plugins: [
+      resolve(),
+      commonjs(),
+      replace({
+        __BUILD_ENV__: 'release',
+      }),
+    ]
+  }
 ];

@@ -1,7 +1,7 @@
 // NOTE: 获取全局 room 变量
 const room = global.cloud.pvp.room;
 
-const Sender = require('./sender');
+const Sender = require('../sender');
 const Game = require('./game');
 
 const sender = new Sender({ room });

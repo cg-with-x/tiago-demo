@@ -9,7 +9,8 @@ var dataManager = {
     tiagoInited: false,
     selfUserInfo: null,
     twoPlayersInfo: null,
-    environment: ''
+    environment: '',
+    tiago: null
 };
 
 module.exports = dataManager;

@@ -1,5 +1,5 @@
-const utils = require('./utils');
-const AI = require('./ai');
+const utils = require('../utils');
+const AI = require('../ai');
 
 class Game {
   constructor({ sender }) {

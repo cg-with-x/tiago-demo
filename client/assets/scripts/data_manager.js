@@ -4,6 +4,7 @@ const dataManager = {
     selfUserInfo: null,
     twoPlayersInfo: null,
     environment: '',
+    tiago: null,
 };
 
 module.exports = dataManager;

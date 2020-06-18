@@ -1,13 +1,13 @@
 import roomManager from './room_manager';
 
 import utils from './utils';
-import dataManager from './data_manager';
+import dataManager from './data_manager';        
 
 cc.Class({
     extends: cc.Component,                
 
-    playerAOpenId: '', 
-    playerBOpenId: '',
+    playerAOpenId: '',            
+    playerBOpenId: '',         
 
     properties: {
         labelPlayerATip: cc.Label,
