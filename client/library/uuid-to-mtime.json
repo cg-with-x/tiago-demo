@@ -469,14 +469,9 @@
     "meta": 1592387451891,
     "relativePath": "model/primitives.fbx"
   },
-  "7398a70f-4eed-4677-a42f-2f463a473208": {
-    "asset": 1592459298153,
-    "meta": 1592459300037,
-    "relativePath": "scripts/game.js"
-  },
   "73a3fefe-76e8-49be-b3bc-93ff4d52c28b": {
-    "asset": 1592481982331,
-    "meta": 1592481982341,
+    "asset": 1592482286971,
+    "meta": 1592482286980,
     "relativePath": "room.fire"
   },
   "b3196052-d5da-45b7-b37d-c5c2ba59ae8e": {
@@ -493,5 +488,10 @@
     "asset": 1592474585204,
     "meta": 1592476045795,
     "relativePath": "scripts/room.js"
+  },
+  "7398a70f-4eed-4677-a42f-2f463a473208": {
+    "asset": 1592482201921,
+    "meta": 1592482202388,
+    "relativePath": "scripts/game.js"
   }
 }
