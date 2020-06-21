@@ -5549,7 +5549,7 @@
     "component": "",
     "_componentId": "9ff5cO3AohAA5GRz1BIw6FL",
     "handler": "onClickMakeTeam",
-    "customEventData": "5"
+    "customEventData": "5-ai"
   },
   {
     "__type__": "cc.Node",
@@ -5933,7 +5933,7 @@
     "component": "",
     "_componentId": "9ff5cO3AohAA5GRz1BIw6FL",
     "handler": "onClickMakeTeam",
-    "customEventData": "6"
+    "customEventData": "6-ai"
   },
   {
     "__type__": "cc.Node",
@@ -6317,7 +6317,7 @@
     "component": "",
     "_componentId": "9ff5cO3AohAA5GRz1BIw6FL",
     "handler": "onClickMakeTeam",
-    "customEventData": "7"
+    "customEventData": "7-ai"
   },
   {
     "__type__": "cc.Node",
