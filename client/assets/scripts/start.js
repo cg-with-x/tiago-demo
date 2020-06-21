@@ -190,6 +190,9 @@ cc.Class({
 
             // 交由 room_manager 进行管理
             roomManager.loadRoom(room);
+            
+            // NOTE: 加入房间连麦
+            tiago.joinRTCForGameRoom(room);
         });
         
         team.on('error', error => {

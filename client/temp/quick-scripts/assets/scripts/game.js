@@ -45,6 +45,9 @@ cc.Class({
         }));
         _room_manager2.default.leave();
         cc.director.loadScene('start');
+
+        // NOTE: 如果之前在一个组队中，则回到队伍
+        if (_data_manager2.default.currentTeam) _data_manager2.default.currentTeam.return();
     },
     onClickTalk: function onClickTalk() {
         if (_room_manager2.default.room) {
@@ -90,6 +93,8 @@ cc.Class({
                     case 'game-over':
                         _room_manager2.default.leave();
                         cc.director.loadScene('start');
+                        // NOTE: 如果之前在一个组队中，则回到队伍
+                        if (_data_manager2.default.currentTeam) _data_manager2.default.currentTeam.return();
                         break;
                     default:
                         break;

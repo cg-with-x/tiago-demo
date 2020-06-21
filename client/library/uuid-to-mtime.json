@@ -464,11 +464,6 @@
     "meta": 1592387449612,
     "relativePath": "resources/materials/builtin-unlit.mtl"
   },
-  "954fec8b-cd16-4bb9-a3b7-7719660e7558": {
-    "asset": 1577454458000,
-    "meta": 1592387451891,
-    "relativePath": "model/primitives.fbx"
-  },
   "73a3fefe-76e8-49be-b3bc-93ff4d52c28b": {
     "asset": 1592482286971,
     "meta": 1592482286980,
@@ -479,19 +474,24 @@
     "meta": 1592476045795,
     "relativePath": "scripts/room.js"
   },
-  "7398a70f-4eed-4677-a42f-2f463a473208": {
-    "asset": 1592482474160,
-    "meta": 1592482475843,
-    "relativePath": "scripts/game.js"
-  },
   "b3196052-d5da-45b7-b37d-c5c2ba59ae8e": {
     "asset": 1592485397605,
     "meta": 1592485856146,
     "relativePath": "scripts/data_manager.js"
   },
+  "7398a70f-4eed-4677-a42f-2f463a473208": {
+    "asset": 1592485959063,
+    "meta": 1592487514209,
+    "relativePath": "scripts/game.js"
+  },
+  "954fec8b-cd16-4bb9-a3b7-7719660e7558": {
+    "asset": 1577454458000,
+    "meta": 1592708967020,
+    "relativePath": "model/primitives.fbx"
+  },
   "9ff5c3b7-0288-4003-9191-cf5048c3a14b": {
-    "asset": 1592485848539,
-    "meta": 1592485856146,
+    "asset": 1592726400735,
+    "meta": 1592726403879,
     "relativePath": "scripts/start.js"
   }
 }
