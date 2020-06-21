@@ -7,20 +7,31 @@ class RoomManager {
         this.room = null;
     }
 
-    loadRoom(room) {
+    loadRoom(room, isMulti = false) {
         this.room = room;
 
         room.on('open', () => {
             console.log('[room] 进入游戏成功!');
 
-            // NOTE: 如果游戏场景比较复杂，可以预加载一下
-            cc.director.loadScene('game', () => {
-                if (this.room) {
-                    this.room.send(JSON.stringify({
-                        event: 'ready',
-                    }));
-                }
-            });
+            if (isMulti) {
+                // NOTE: 如果游戏场景比较复杂，可以预加载一下
+                cc.director.loadScene('multi-game', () => {
+                    if (this.room) {
+                        this.room.send(JSON.stringify({
+                            event: 'ready',
+                        }));
+                    }
+                });
+            } else {
+                // NOTE: 如果游戏场景比较复杂，可以预加载一下
+                cc.director.loadScene('game', () => {
+                    if (this.room) {
+                        this.room.send(JSON.stringify({
+                            event: 'ready',
+                        }));
+                    }
+                });
+            }
         });
 
         room.on('message', ({ message }) => {
@@ -33,6 +44,12 @@ class RoomManager {
                 const canvas = scene.getChildByName('Canvas');
                 if (canvas) {
                     canvas.getComponent('game').onRoomMessage(message);
+                }
+            } else if (scene.name === 'multi-game') {
+                // NOTE: 也可以使用 Event 方式传递
+                const canvas = scene.getChildByName('Canvas');
+                if (canvas) {
+                    canvas.getComponent('multi_game').onRoomMessage(message);
                 }
             }
         });

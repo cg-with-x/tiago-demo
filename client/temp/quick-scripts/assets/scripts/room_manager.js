@@ -31,19 +31,32 @@ var RoomManager = function () {
         value: function loadRoom(room) {
             var _this = this;
 
+            var isMulti = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
             this.room = room;
 
             room.on('open', function () {
                 console.log('[room] 进入游戏成功!');
 
-                // NOTE: 如果游戏场景比较复杂，可以预加载一下
-                cc.director.loadScene('game', function () {
-                    if (_this.room) {
-                        _this.room.send(JSON.stringify({
-                            event: 'ready'
-                        }));
-                    }
-                });
+                if (isMulti) {
+                    // NOTE: 如果游戏场景比较复杂，可以预加载一下
+                    cc.director.loadScene('multi-game', function () {
+                        if (_this.room) {
+                            _this.room.send(JSON.stringify({
+                                event: 'ready'
+                            }));
+                        }
+                    });
+                } else {
+                    // NOTE: 如果游戏场景比较复杂，可以预加载一下
+                    cc.director.loadScene('game', function () {
+                        if (_this.room) {
+                            _this.room.send(JSON.stringify({
+                                event: 'ready'
+                            }));
+                        }
+                    });
+                }
             });
 
             room.on('message', function (_ref) {
@@ -58,6 +71,12 @@ var RoomManager = function () {
                     var canvas = scene.getChildByName('Canvas');
                     if (canvas) {
                         canvas.getComponent('game').onRoomMessage(message);
+                    }
+                } else if (scene.name === 'multi-game') {
+                    // NOTE: 也可以使用 Event 方式传递
+                    var _canvas = scene.getChildByName('Canvas');
+                    if (_canvas) {
+                        _canvas.getComponent('multi_game').onRoomMessage(message);
                     }
                 }
             });

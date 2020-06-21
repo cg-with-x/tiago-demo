@@ -4397,7 +4397,7 @@
     "component": "",
     "_componentId": "9ff5cO3AohAA5GRz1BIw6FL",
     "handler": "onClickMakeTeam",
-    "customEventData": "2"
+    "customEventData": "2-ai"
   },
   {
     "__type__": "cc.Node",
@@ -4781,7 +4781,7 @@
     "component": "",
     "_componentId": "9ff5cO3AohAA5GRz1BIw6FL",
     "handler": "onClickMakeTeam",
-    "customEventData": "3"
+    "customEventData": "3-ai"
   },
   {
     "__type__": "cc.Node",
@@ -5165,7 +5165,7 @@
     "component": "",
     "_componentId": "9ff5cO3AohAA5GRz1BIw6FL",
     "handler": "onClickMakeTeam",
-    "customEventData": "4"
+    "customEventData": "4-ai"
   },
   {
     "__type__": "cc.Node",
@@ -6701,7 +6701,7 @@
     "component": "",
     "_componentId": "9ff5cO3AohAA5GRz1BIw6FL",
     "handler": "onClickMakeTeam",
-    "customEventData": "8"
+    "customEventData": "8-ai"
   },
   {
     "__type__": "cc.Node",
@@ -7085,7 +7085,7 @@
     "component": "",
     "_componentId": "9ff5cO3AohAA5GRz1BIw6FL",
     "handler": "onClickMakeTeam",
-    "customEventData": "9"
+    "customEventData": "9-ai"
   },
   {
     "__type__": "cc.Node",

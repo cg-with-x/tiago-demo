@@ -100,6 +100,7 @@
 	    this.state = 'waiting';
 	    this.players = {};
 	    this.playerCount = 0;
+	    this.needPlayers = 0;
 	    this.sender = sender;
 	    this.logicId = null;
 	    this.config = null;
@@ -108,11 +109,27 @@
 	  onConfig(config) {
 	    this.config = config;
 
-	    // 房间由匹配服务创建
+	    // NOTE: 房间信息，仅做人数校验
+	    // 严格来讲，应该做 openId 校验
+	    if (config.playerInfoList) {
+	      // NOTE: 所有人，对应 Single Match
+	      let allPlayers = 0;
+	      const playerInfoList = config.playerInfoList;
+	      for (let i = 0; i < playerInfoList.length; i++) {
+	        const camp = playerInfoList[i];
+	        allPlayers += camp.length;
+	      }
+	      this.needPlayers = allPlayers;
+	    }
+
+	    // NOTE: 房间由匹配服务创建
 	    if (config.fromMatch) {
-	      if (config.AIInfos && config.AIInfos.length) {
-	        // NOTE: 兼容 AI 逻辑，本游戏仅支持一个 AI
-	        this.onJoinAI(config.AIInfos[0]);
+	      const aiInfos = config.AIInfos;
+	      if (aiInfos && aiInfos.length) {
+	        for (let i = 0; i < aiInfos.length; i++) {
+	          const aiInfo = aiInfos[i];
+	          this.onJoinAI(aiInfo);
+	        }
 	      }
 	    }
 	  }
@@ -179,8 +196,8 @@
 	      }
 	    }
 
-	    // NOTE: 简单处理，当有 2 个用户准备好后开始游戏
-	    if (readyPlayer === this.playerCount && readyPlayer >= 2) {
+	    // NOTE: 所有人进入游戏后，游戏开始
+	    if (readyPlayer === this.playerCount && readyPlayer === this.needPlayers) {
 	      this.start();
 	    }
 	  }

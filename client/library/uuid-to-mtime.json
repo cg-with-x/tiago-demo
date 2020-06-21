@@ -70,8 +70,8 @@
     "relativePath": "scripts"
   },
   "5bc9b516-a8cc-41ce-8b46-c210a2866dc0": {
-    "asset": 1592482353622,
-    "meta": 1592482353633,
+    "asset": 1592743169806,
+    "meta": 1592743169817,
     "relativePath": "start.fire"
   },
   "66196d12-705f-42dc-b182-6a8b95583fc0": {
@@ -83,11 +83,6 @@
     "asset": 1591936258108,
     "meta": 1591936379760,
     "relativePath": "scripts/utils.js"
-  },
-  "001f7234-ef8b-49c3-9557-5a76607b6ab9": {
-    "asset": 1591936258108,
-    "meta": 1591936379752,
-    "relativePath": "scripts/room_manager.js"
   },
   "430eccbf-bf2c-4e6e-8c0c-884bbb487f32": {
     "asset": 1577454458000,
@@ -474,24 +469,39 @@
     "meta": 1592476045795,
     "relativePath": "scripts/room.js"
   },
-  "b3196052-d5da-45b7-b37d-c5c2ba59ae8e": {
-    "asset": 1592485397605,
-    "meta": 1592485856146,
-    "relativePath": "scripts/data_manager.js"
-  },
-  "7398a70f-4eed-4677-a42f-2f463a473208": {
-    "asset": 1592485959063,
-    "meta": 1592487514209,
-    "relativePath": "scripts/game.js"
-  },
   "954fec8b-cd16-4bb9-a3b7-7719660e7558": {
     "asset": 1577454458000,
     "meta": 1592708967020,
     "relativePath": "model/primitives.fbx"
   },
+  "25a8cb58-0a15-4e84-b28d-22c789842389": {
+    "asset": 1592742776088,
+    "meta": 1592742776094,
+    "relativePath": "multi-game.fire"
+  },
+  "b3196052-d5da-45b7-b37d-c5c2ba59ae8e": {
+    "asset": 1592741147776,
+    "meta": 1592741426476,
+    "relativePath": "scripts/data_manager.js"
+  },
   "9ff5c3b7-0288-4003-9191-cf5048c3a14b": {
-    "asset": 1592726400735,
-    "meta": 1592726403879,
+    "asset": 1592742290758,
+    "meta": 1592742301232,
     "relativePath": "scripts/start.js"
+  },
+  "7398a70f-4eed-4677-a42f-2f463a473208": {
+    "asset": 1592742322819,
+    "meta": 1592742323375,
+    "relativePath": "scripts/game.js"
+  },
+  "001f7234-ef8b-49c3-9557-5a76607b6ab9": {
+    "asset": 1592743159597,
+    "meta": 1592743162336,
+    "relativePath": "scripts/room_manager.js"
+  },
+  "31b0532b-dde9-466f-b40f-929d9a3ec642": {
+    "asset": 1592743596218,
+    "meta": 1592743596953,
+    "relativePath": "scripts/multi_game.js"
   }
 }

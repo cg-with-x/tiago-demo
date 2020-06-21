@@ -11,7 +11,8 @@ var dataManager = {
     environment: '',
     tiagoInited: false,
     tiago: null, // 保留一个 tiago 的引用
-    currentTeam: null // 用于存放当前所在的组队队伍，用户在游戏后返回
+    currentTeam: null, // 用于存放当前所在的组队队伍，用户在游戏后返回
+    multiPlayersInfo: null
 };
 
 module.exports = dataManager;

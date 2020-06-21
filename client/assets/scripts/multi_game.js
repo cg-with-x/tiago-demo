@@ -4,21 +4,14 @@ import utils from './utils';
 import dataManager from './data_manager';        
 
 cc.Class({
-    extends: cc.Component,                
-
-    playerAOpenId: '',   
-    playerBOpenId: '',         
+    extends: cc.Component,      
 
     properties: {
-        labelPlayerATip: cc.Label,
-        labelPlayerANickName: cc.Label,
-        spritePlayerAAvatar: cc.Sprite,
-
-        labelPlayerBTip: cc.Label,
-        labelPlayerBNickName: cc.Label,
-        spritePlayerBAvatar: cc.Sprite,
-
+        chatRoot: cc.Node,
         labelServerTime: cc.Label,
+        players: {
+            default: {},
+        },
     },
 
     start () {
@@ -65,7 +58,7 @@ cc.Class({
                         dataManager.environment = data;
                         break;
                     case 'info':
-                        dataManager.twoPlayersInfo = data;
+                        dataManager.multiPlayersInfo = data;
                         this.renderPlayers();
                         break;
                     case 'server-time':
@@ -88,31 +81,40 @@ cc.Class({
     },
 
     renderPlayers() {
-        if (dataManager.twoPlayersInfo) {
-            const [ playerA, playerB ] = dataManager.twoPlayersInfo;
+        if (dataManager.multiPlayersInfo) {
+            const players = dataManager.multiPlayersInfo;
 
-            if (playerA) {
-                this.playerAOpenId = playerA.openId;
-                const name = playerA.isAI ? `AI: ${playerA.nickName}` : playerA.nickName;
-                this.labelPlayerANickName.string = name;
-                utils.renderAvatar(this.spritePlayerAAvatar, playerA.avatarUrl);
-            }
+            this.chatRoot.removeAllChildren();
+            this.players = [];
 
-            if (playerB) {
-                this.playerBOpenId = playerB.openId;
-                const name = playerB.isAI ? `AI: ${playerB.nickName}` : playerB.nickName;
-                this.labelPlayerBNickName.string = name;
-                utils.renderAvatar(this.spritePlayerBAvatar, playerB.avatarUrl);
+            for (let i = 0; i < players.length; i++) {
+                const player = players[i];
+                const openId = player.openId;
+                const label = new cc.Node().addComponent(cc.Label);
+                this.chatRoot.addChild(label.node);
+                label.node.y = -i * 70;
+
+                this.players[openId] = {
+                    openId,
+                    info: player,
+                    label,
+                };
+
+                this.renderTalk({ openId, data: '' });
             }
         }
     },
 
     renderTalk({ openId, data }) {
         const tip = `战斗力 +${data}`;
-        if (openId === this.playerAOpenId) {
-            this.labelPlayerATip.string = tip;
-        } else if (openId === this.playerBOpenId) {
-            this.labelPlayerBTip.string = tip;
+        const player = this.players[openId];
+        const self = dataManager.tiago.getUserInfo();
+
+        if (player && self) {
+            const isMe = player.openId === self.openId;
+            let name = player.info.isAI ? `AI: ${player.info.nickName}` : player.info.nickName;
+            if (isMe) name = `${name}(我)`;
+            player.label.string = `${name}: ${tip}`;
         }
     }
 

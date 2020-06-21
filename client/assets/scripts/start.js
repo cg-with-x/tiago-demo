@@ -4,7 +4,7 @@ import dataManager from './data_manager';
 import utils from './utils';
 
 cc.Class({
-    extends: cc.Component,
+    extends: cc.Component,    
 
     properties: {
         labelNickName: cc.Label,
@@ -157,9 +157,9 @@ cc.Class({
             isAutoJoinRTC: true, // 默认组队时进行连麦
             match: {
                 type: tiago.MATCH_TYPE.Single, // SINGLE, NVN,
-                minPlayerCount: size - 1, // 补充 1 个 AI
+                minPlayerCount: 1, // 1 个人就能玩
                 isAutoAppendAI: ai, // 配合 SINGLE，字段，默认不补充 AI，NVN 匹配时不支持 AI
-                // gameRoomScriptId: '', // 房间服务适用、指定不同的游戏房间脚本 ID、配合 IDE 上传房间脚本时使用
+                gameRoomScriptId: 'room-283', // 房间服务适用、指定不同的游戏房间脚本 ID（注意不是脚本名称）、配合 IDE 上传房间脚本时使用
                 // disableAutoCreateGameRoom: true, // 默认自动创建游戏房间，可以关闭（生肖派对），关闭后，gameRoomScriptId 字段失效
             },
         });
@@ -189,7 +189,7 @@ cc.Class({
             });
 
             // 交由 room_manager 进行管理
-            roomManager.loadRoom(room);
+            roomManager.loadRoom(room, true);
             
             // NOTE: 加入房间连麦
             tiago.joinRTCForGameRoom(room);
