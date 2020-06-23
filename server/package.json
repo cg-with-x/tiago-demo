@@ -6,7 +6,8 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "upload-multi-test": "pvp-cli upload-script -i tt5e982825c1b2d9a3 --scriptId='room-283' -p ./dist/multi-player.test.js"
   },
   "author": "",
   "license": "ISC",
