@@ -7,31 +7,15 @@ class RoomManager {
         this.room = null;
     }
 
-    loadRoom(room, isMulti = false) {
+    loadRoom(room) {
         this.room = room;
 
         room.on('open', () => {
             console.log('[room] 进入游戏成功!');
 
-            if (isMulti) {
-                // NOTE: 如果游戏场景比较复杂，可以预加载一下
-                cc.director.loadScene('multi-game', () => {
-                    if (this.room) {
-                        this.room.send(JSON.stringify({
-                            event: 'ready',
-                        }));
-                    }
-                });
-            } else {
-                // NOTE: 如果游戏场景比较复杂，可以预加载一下
-                cc.director.loadScene('game', () => {
-                    if (this.room) {
-                        this.room.send(JSON.stringify({
-                            event: 'ready',
-                        }));
-                    }
-                });
-            }
+            this.room.send(JSON.stringify({
+                event: 'ready',
+            }));
         });
 
         room.on('message', ({ message }) => {

@@ -118,16 +118,20 @@ cc.Class({
         match.on('create-game-room-success', function (result) {
             console.log(result);
 
-            // NOTE: 随后可以加入游戏房间
-            var room = _tiago2.default.joinGameRoom({
-                roomNum: result.roomNum
+            // NOTE: 如果游戏场景比较复杂，可以预加载一下
+            // 可以先切换场景，然后连入游戏房间
+            cc.director.loadScene('game', function () {
+                // NOTE: 随后可以加入游戏房间
+                var room = _tiago2.default.joinGameRoom({
+                    roomNum: result.roomNum
+                });
+
+                // NOTE: 加入房间连麦
+                _tiago2.default.joinRTCForGameRoom(room);
+
+                // 交由 room_manager 进行管理
+                _room_manager2.default.loadRoom(room);
             });
-
-            // NOTE: 加入房间连麦
-            _tiago2.default.joinRTCForGameRoom(room);
-
-            // 交由 room_manager 进行管理
-            _room_manager2.default.loadRoom(room);
         });
 
         match.on('error', function (error) {
@@ -147,13 +151,17 @@ cc.Class({
         match.on('create-game-room-success', function (result) {
             console.log(result);
 
-            // NOTE: 随后可以加入游戏房间
-            var room = _tiago2.default.joinGameRoom({
-                roomNum: result.roomNum
-            });
+            // NOTE: 如果游戏场景比较复杂，可以预加载一下
+            // 可以先切换场景，然后连入游戏房间
+            cc.director.loadScene('game', function () {
+                // NOTE: 随后可以加入游戏房间
+                var room = _tiago2.default.joinGameRoom({
+                    roomNum: result.roomNum
+                });
 
-            // 交由 room_manager 进行管理
-            _room_manager2.default.loadRoom(room);
+                // 交由 room_manager 进行管理
+                _room_manager2.default.loadRoom(room);
+            });
         });
 
         match.on('error', function (error) {
@@ -206,16 +214,20 @@ cc.Class({
         team.on('create-game-room-success', function (result) {
             console.log(result);
 
-            // NOTE: 随后可以加入游戏房间
-            var room = _tiago2.default.joinGameRoom({
-                roomNum: result.roomNum
+            // NOTE: 如果游戏场景比较复杂，可以预加载一下
+            // 可以先切换场景，然后连入游戏房间
+            cc.director.loadScene('multi-game', function () {
+                // NOTE: 随后可以加入游戏房间
+                var room = _tiago2.default.joinGameRoom({
+                    roomNum: result.roomNum
+                });
+
+                // NOTE: 加入房间连麦
+                _tiago2.default.joinRTCForGameRoom(room);
+
+                // 交由 room_manager 进行管理
+                _room_manager2.default.loadRoom(room);
             });
-
-            // 交由 room_manager 进行管理
-            _room_manager2.default.loadRoom(room, true);
-
-            // NOTE: 加入房间连麦
-            _tiago2.default.joinRTCForGameRoom(room);
         });
 
         team.on('error', function (error) {
