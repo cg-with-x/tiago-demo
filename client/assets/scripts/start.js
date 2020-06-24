@@ -136,6 +136,9 @@ cc.Class({
                 const room = tiago.joinGameRoom({
                     roomNum: result.roomNum,
                 });
+                
+                // NOTE: 加入房间连麦
+                tiago.joinRTCForGameRoom(room);
 
                 // 交由 room_manager 进行管理
                 roomManager.loadRoom(room);

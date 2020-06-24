@@ -159,6 +159,9 @@ cc.Class({
                     roomNum: result.roomNum
                 });
 
+                // NOTE: 加入房间连麦
+                _tiago2.default.joinRTCForGameRoom(room);
+
                 // 交由 room_manager 进行管理
                 _room_manager2.default.loadRoom(room);
             });
