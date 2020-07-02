@@ -44,7 +44,7 @@ cc.Class({
             event: 'bye'
         }));
         // NOTE: 推出连麦
-        if (_data_manager2.default.tiago) _data_manager2.default.tiago.leaveRtcFromGameRoom(_room_manager2.default.room);
+        if (_data_manager2.default.tiago) _data_manager2.default.tiago.leaveRTCFromGameRoom(_room_manager2.default.room);
 
         _room_manager2.default.leave();
         cc.director.loadScene('start');
@@ -95,7 +95,7 @@ cc.Class({
                         break;
                     case 'game-over':
                         // NOTE: 推出连麦
-                        if (_data_manager2.default.tiago) _data_manager2.default.tiago.leaveRtcFromGameRoom(_room_manager2.default.room);
+                        if (_data_manager2.default.tiago) _data_manager2.default.tiago.leaveRTCFromGameRoom(_room_manager2.default.room);
                         _room_manager2.default.leave();
                         cc.director.loadScene('start');
                         // NOTE: 如果之前在一个组队中，则回到队伍

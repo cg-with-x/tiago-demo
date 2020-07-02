@@ -30,7 +30,7 @@ cc.Class({
             event: 'bye',
         }));
         // NOTE: 推出连麦
-        if (dataManager.tiago) dataManager.tiago.leaveRtcFromGameRoom(roomManager.room);
+        if (dataManager.tiago) dataManager.tiago.leaveRTCFromGameRoom(roomManager.room);
 
         roomManager.leave();
         cc.director.loadScene('start');
@@ -79,7 +79,7 @@ cc.Class({
                         break;
                     case 'game-over':
                         // NOTE: 推出连麦
-                        if (dataManager.tiago) dataManager.tiago.leaveRtcFromGameRoom(roomManager.room);
+                        if (dataManager.tiago) dataManager.tiago.leaveRTCFromGameRoom(roomManager.room);
                         roomManager.leave();
                         cc.director.loadScene('start');
                         // NOTE: 如果之前在一个组队中，则回到队伍

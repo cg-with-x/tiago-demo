@@ -489,11 +489,6 @@
     "meta": 1592997550379,
     "relativePath": "scripts/room_manager.js"
   },
-  "7398a70f-4eed-4677-a42f-2f463a473208": {
-    "asset": 1593000892294,
-    "meta": 1593001031944,
-    "relativePath": "scripts/game.js"
-  },
   "9ff5c3b7-0288-4003-9191-cf5048c3a14b": {
     "asset": 1593000706650,
     "meta": 1593001031993,
@@ -503,5 +498,10 @@
     "asset": 1593698756811,
     "meta": 1593698760198,
     "relativePath": "scripts/multi_game.js"
+  },
+  "7398a70f-4eed-4677-a42f-2f463a473208": {
+    "asset": 1593699003269,
+    "meta": 1593699017130,
+    "relativePath": "scripts/game.js"
   }
 }
