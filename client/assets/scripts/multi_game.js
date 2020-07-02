@@ -54,7 +54,7 @@ cc.Class({
         if (dataManager.currentTeam) dataManager.currentTeam.return();
 
         // NOTE: 推出连麦
-        if (dataManager.tiago) dataManager.tiago.leaveRtcFromGameRoom(roomManager.room);
+        if (dataManager.tiago) dataManager.tiago.leaveRTCFromGameRoom(roomManager.room);
 
         cc.director.loadScene('start');
     },

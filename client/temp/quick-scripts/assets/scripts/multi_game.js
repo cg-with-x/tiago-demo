@@ -65,7 +65,7 @@ cc.Class({
         if (_data_manager2.default.currentTeam) _data_manager2.default.currentTeam.return();
 
         // NOTE: 推出连麦
-        if (_data_manager2.default.tiago) _data_manager2.default.tiago.leaveRtcFromGameRoom(_room_manager2.default.room);
+        if (_data_manager2.default.tiago) _data_manager2.default.tiago.leaveRTCFromGameRoom(_room_manager2.default.room);
 
         cc.director.loadScene('start');
     },
