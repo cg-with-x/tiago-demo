@@ -65,13 +65,13 @@
     "relativePath": "resources/materials"
   },
   "3a246b35-3406-43dd-81b8-c5a6c75c96e2": {
-    "asset": 1592740226456,
+    "asset": 1593695815274,
     "meta": 1591936258107,
     "relativePath": "scripts"
   },
   "5bc9b516-a8cc-41ce-8b46-c210a2866dc0": {
-    "asset": 1592744993857,
-    "meta": 1592744993871,
+    "asset": 1593698508245,
+    "meta": 1593698508254,
     "relativePath": "start.fire"
   },
   "66196d12-705f-42dc-b182-6a8b95583fc0": {
@@ -475,8 +475,8 @@
     "relativePath": "model/primitives.fbx"
   },
   "25a8cb58-0a15-4e84-b28d-22c789842389": {
-    "asset": 1592742776088,
-    "meta": 1592742776094,
+    "asset": 1593698502565,
+    "meta": 1593698502573,
     "relativePath": "multi-game.fire"
   },
   "b3196052-d5da-45b7-b37d-c5c2ba59ae8e": {
@@ -494,14 +494,14 @@
     "meta": 1593001031944,
     "relativePath": "scripts/game.js"
   },
-  "31b0532b-dde9-466f-b40f-929d9a3ec642": {
-    "asset": 1593000883088,
-    "meta": 1593001031987,
-    "relativePath": "scripts/multi_game.js"
-  },
   "9ff5c3b7-0288-4003-9191-cf5048c3a14b": {
     "asset": 1593000706650,
     "meta": 1593001031993,
     "relativePath": "scripts/start.js"
+  },
+  "31b0532b-dde9-466f-b40f-929d9a3ec642": {
+    "asset": 1593698436658,
+    "meta": 1593698439269,
+    "relativePath": "scripts/multi_game.js"
   }
 }

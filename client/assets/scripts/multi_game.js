@@ -9,27 +9,29 @@ cc.Class({
     properties: {
         chatRoot: cc.Node,
         labelServerTime: cc.Label,
+        settlementRoot: cc.Node,
+        labelResult: cc.Label,
         players: {
             default: {},
+        },
+        bestScorePlayer: {
+            default: '',
+        },
+        bestScore: {
+            default: 0,
         },
     },
 
     start () {
-
+        this.settlementRoot.active = false;
     },
 
     onClickStopGame() {
         roomManager.room.send(JSON.stringify({
             event: 'bye',
         }));
-        // NOTE: 推出连麦
-        if (dataManager.tiago) dataManager.tiago.leaveRtcFromGameRoom(roomManager.room);
-
         roomManager.leave();
-        cc.director.loadScene('start');
-
-        // NOTE: 如果之前在一个组队中，则回到队伍
-        if (dataManager.currentTeam) dataManager.currentTeam.return();
+        this.showSettlement();
     },
 
     onClickTalk() {
@@ -45,6 +47,16 @@ cc.Class({
         if (roomManager.room) {
             roomManager.room.reconnect();
         }
+    },
+
+    onClickBack() {
+        // NOTE: 如果之前在一个组队中，则回到队伍
+        if (dataManager.currentTeam) dataManager.currentTeam.return();
+
+        // NOTE: 推出连麦
+        if (dataManager.tiago) dataManager.tiago.leaveRtcFromGameRoom(roomManager.room);
+
+        cc.director.loadScene('start');
     },
 
     onRoomMessage(messageStr) {
@@ -69,14 +81,11 @@ cc.Class({
                         break;
                     case 'talk':
                         this.renderTalk(data);
+                        this.recordBestScore(data);
                         break;
                     case 'game-over':
-                        // NOTE: 推出连麦
-                        if (dataManager.tiago) dataManager.tiago.leaveRtcFromGameRoom(roomManager.room);
                         roomManager.leave();
-                        cc.director.loadScene('start');
-                        // NOTE: 如果之前在一个组队中，则回到队伍
-                        if (dataManager.currentTeam) dataManager.currentTeam.return();
+                        this.showSettlement();
                         break;
                     default:
                         break;
@@ -120,6 +129,21 @@ cc.Class({
             let name = player.info.isAI ? `AI: ${player.info.nickName}` : player.info.nickName;
             if (isMe) name = `${name}(我)`;
             player.label.string = `${name}: ${tip}`;
+        }
+    },
+
+    recordBestScore({ openId, data }) {
+        if (this.bestScore < Number(data)) {
+            this.bestScore = Number(data);
+            const player = this.players[openId];
+            this.bestScorePlayer = player.info.nickName;
+        }
+    },
+
+    showSettlement() {
+        this.settlementRoot.active = true;
+        if(this.bestScorePlayer) {
+            this.labelResult.string = `${this.bestScorePlayer}最高打出最高伤害: +${this.bestScore}`;
         }
     }
 

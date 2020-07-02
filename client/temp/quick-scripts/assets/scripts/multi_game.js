@@ -24,24 +24,28 @@ cc.Class({
     properties: {
         chatRoot: cc.Node,
         labelServerTime: cc.Label,
+        settlementRoot: cc.Node,
+        labelResult: cc.Label,
         players: {
             default: {}
+        },
+        bestScorePlayer: {
+            default: ''
+        },
+        bestScore: {
+            default: 0
         }
     },
 
-    start: function start() {},
+    start: function start() {
+        this.settlementRoot.active = false;
+    },
     onClickStopGame: function onClickStopGame() {
         _room_manager2.default.room.send(JSON.stringify({
             event: 'bye'
         }));
-        // NOTE: 推出连麦
-        if (_data_manager2.default.tiago) _data_manager2.default.tiago.leaveRtcFromGameRoom(_room_manager2.default.room);
-
         _room_manager2.default.leave();
-        cc.director.loadScene('start');
-
-        // NOTE: 如果之前在一个组队中，则回到队伍
-        if (_data_manager2.default.currentTeam) _data_manager2.default.currentTeam.return();
+        this.showSettlement();
     },
     onClickTalk: function onClickTalk() {
         if (_room_manager2.default.room) {
@@ -55,6 +59,15 @@ cc.Class({
         if (_room_manager2.default.room) {
             _room_manager2.default.room.reconnect();
         }
+    },
+    onClickBack: function onClickBack() {
+        // NOTE: 如果之前在一个组队中，则回到队伍
+        if (_data_manager2.default.currentTeam) _data_manager2.default.currentTeam.return();
+
+        // NOTE: 推出连麦
+        if (_data_manager2.default.tiago) _data_manager2.default.tiago.leaveRtcFromGameRoom(_room_manager2.default.room);
+
+        cc.director.loadScene('start');
     },
     onRoomMessage: function onRoomMessage(messageStr) {
         var _this = this;
@@ -83,14 +96,11 @@ cc.Class({
                         break;
                     case 'talk':
                         _this.renderTalk(data);
+                        _this.recordBestScore(data);
                         break;
                     case 'game-over':
-                        // NOTE: 推出连麦
-                        if (_data_manager2.default.tiago) _data_manager2.default.tiago.leaveRtcFromGameRoom(_room_manager2.default.room);
                         _room_manager2.default.leave();
-                        cc.director.loadScene('start');
-                        // NOTE: 如果之前在一个组队中，则回到队伍
-                        if (_data_manager2.default.currentTeam) _data_manager2.default.currentTeam.return();
+                        _this.showSettlement();
                         break;
                     default:
                         break;
@@ -135,6 +145,22 @@ cc.Class({
             var name = player.info.isAI ? 'AI: ' + player.info.nickName : player.info.nickName;
             if (isMe) name = name + '(\u6211)';
             player.label.string = name + ': ' + tip;
+        }
+    },
+    recordBestScore: function recordBestScore(_ref3) {
+        var openId = _ref3.openId,
+            data = _ref3.data;
+
+        if (this.bestScore < Number(data)) {
+            this.bestScore = Number(data);
+            var player = this.players[openId];
+            this.bestScorePlayer = player.info.nickName;
+        }
+    },
+    showSettlement: function showSettlement() {
+        this.settlementRoot.active = true;
+        if (this.bestScorePlayer) {
+            this.labelResult.string = this.bestScorePlayer + '\u6700\u9AD8\u6253\u51FA\u6700\u9AD8\u4F24\u5BB3: +' + this.bestScore;
         }
     }
 
