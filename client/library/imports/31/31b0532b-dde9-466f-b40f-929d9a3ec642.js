@@ -44,7 +44,6 @@ cc.Class({
         _room_manager2.default.room.send(JSON.stringify({
             event: 'bye'
         }));
-        _room_manager2.default.leave();
         this.showSettlement();
     },
     onClickTalk: function onClickTalk() {
@@ -61,13 +60,14 @@ cc.Class({
         }
     },
     onClickBack: function onClickBack() {
-        // NOTE: 如果之前在一个组队中，则回到队伍
-        if (_data_manager2.default.currentTeam) _data_manager2.default.currentTeam.return();
+        cc.director.loadScene('start');
 
         // NOTE: 推出连麦
         if (_data_manager2.default.tiago) _data_manager2.default.tiago.leaveRTCFromGameRoom(_room_manager2.default.room);
+        _room_manager2.default.leave();
 
-        cc.director.loadScene('start');
+        // NOTE: 如果之前在一个组队中，则回到队伍
+        if (_data_manager2.default.currentTeam) _data_manager2.default.currentTeam.return();
     },
     onRoomMessage: function onRoomMessage(messageStr) {
         var _this = this;
@@ -99,7 +99,6 @@ cc.Class({
                         _this.recordBestScore(data);
                         break;
                     case 'game-over':
-                        _room_manager2.default.leave();
                         _this.showSettlement();
                         break;
                     default:

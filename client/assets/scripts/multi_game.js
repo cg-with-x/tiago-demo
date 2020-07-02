@@ -30,7 +30,6 @@ cc.Class({
         roomManager.room.send(JSON.stringify({
             event: 'bye',
         }));
-        roomManager.leave();
         this.showSettlement();
     },
 
@@ -50,13 +49,14 @@ cc.Class({
     },
 
     onClickBack() {
-        // NOTE: 如果之前在一个组队中，则回到队伍
-        if (dataManager.currentTeam) dataManager.currentTeam.return();
+        cc.director.loadScene('start');
 
         // NOTE: 推出连麦
         if (dataManager.tiago) dataManager.tiago.leaveRTCFromGameRoom(roomManager.room);
+        roomManager.leave();
 
-        cc.director.loadScene('start');
+        // NOTE: 如果之前在一个组队中，则回到队伍
+        if (dataManager.currentTeam) dataManager.currentTeam.return();
     },
 
     onRoomMessage(messageStr) {
@@ -84,7 +84,6 @@ cc.Class({
                         this.recordBestScore(data);
                         break;
                     case 'game-over':
-                        roomManager.leave();
                         this.showSettlement();
                         break;
                     default:

@@ -494,14 +494,14 @@
     "meta": 1593001031993,
     "relativePath": "scripts/start.js"
   },
-  "31b0532b-dde9-466f-b40f-929d9a3ec642": {
-    "asset": 1593698756811,
-    "meta": 1593698760198,
-    "relativePath": "scripts/multi_game.js"
-  },
   "7398a70f-4eed-4677-a42f-2f463a473208": {
     "asset": 1593699003269,
     "meta": 1593699017130,
     "relativePath": "scripts/game.js"
+  },
+  "31b0532b-dde9-466f-b40f-929d9a3ec642": {
+    "asset": 1593699943383,
+    "meta": 1593699944913,
+    "relativePath": "scripts/multi_game.js"
   }
 }
