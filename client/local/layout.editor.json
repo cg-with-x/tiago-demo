@@ -5,7 +5,7 @@
       "main": true,
       "url": "app://editor/index.html",
       "windowType": "dockable",
-      "x": 0,
+      "x": -1,
       "y": 23,
       "width": 1680,
       "height": 946,
@@ -18,7 +18,7 @@
                 "children": [
                   "hierarchy"
                 ],
-                "height": 300,
+                "height": 540,
                 "type": "panel",
                 "width": 204
               },
@@ -27,7 +27,7 @@
                 "children": [
                   "assets"
                 ],
-                "height": 562,
+                "height": 322,
                 "type": "panel",
                 "width": 204
               }
@@ -104,7 +104,7 @@
         "cocos-services"
       ]
     },
-    "window-1593699741508": {}
+    "window-1593700064156": {}
   },
   "panels": {
     "project-settings": {
