@@ -7,20 +7,37 @@
   resolved "https://registry.yarnpkg.com/@byted-creative/app_log/-/app_log-0.0.7.tgz#06ed5ecfe846bd7888d1283835727bc75a562e25"
   integrity sha512-wTEjSJDoDSzGjxU82ajcF8thEGKJMlIPgLpi9ckXbVHw6dsHNF/Mg/LVcVr2WWl53qiSYJ9of+FLWCXzoVP/Mw==
 
-"@byted-creative/pvp-client@0.0.2-beta-1":
-  version "0.0.2-beta-1"
-  resolved "https://registry.npmjs.org/@byted-creative/pvp-client/-/pvp-client-0.0.2-beta-1.tgz#093ccb9d0412d1a8b2ce7126a9a925ff9ea330f6"
-  integrity sha512-jOiLBv9VcSw8SFF8+seE+wvKsRbyP+K1aNs3UIZM6NH1iZfInNA3AdIaFZJFaE7Cmo7qAr7W4uV8voy+ufFHfg==
+"@byted-creative/pvp-client@0.0.2-beta-3":
+  version "0.0.2-beta-3"
+  resolved "https://registry.npmjs.org/@byted-creative/pvp-client/-/pvp-client-0.0.2-beta-3.tgz#79304fa3259447f4aabaf91c27f4a35214fec2cf"
+  integrity sha512-Tvv2fdqJVt48VCwGr+hfQz5AUJRHuyVHDsNmEDzDVdvthuJqDu+ODqTM4P08uPKdZjv3xwyxSaqfsI+wYFErOw==
   dependencies:
     eventemitter3 "^3.1.2"
 
-"@byted-creative/tiago@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/@byted-creative/tiago/-/tiago-2.0.0.tgz#2ee3d2a75829fd4124eb6979485493f33529b820"
-  integrity sha512-zmk6Ne7S2eQxQ/KsSgW3keWVicBzuMMrSEHlBlCIYgHHqUev8NfsSQO+fck3ct3+0S8qY99HhSwHBRQMi8jwog==
+"@byted-creative/pvp-client@0.0.2-beta-4":
+  version "0.0.2-beta-4"
+  resolved "https://registry.npmjs.org/@byted-creative/pvp-client/-/pvp-client-0.0.2-beta-4.tgz#dd60b184b254cec7d2113460eed403c14184da5a"
+  integrity sha512-Fvk+KWsH4PYXIUiSFGA+RfwbMhy37FrpgMXpXvfFGy3serzEWpljTchdN/JO+8SKbezGssvrsV47nypmn9NyeQ==
+  dependencies:
+    "@byted-creative/tiago" "2.0.2"
+    eventemitter3 "^3.1.2"
+
+"@byted-creative/tiago@2.0.2":
+  version "2.0.2"
+  resolved "https://registry.npmjs.org/@byted-creative/tiago/-/tiago-2.0.2.tgz#52a5e5b8c22a235827e64023cf974731583108de"
+  integrity sha512-DdcqfSIU0gOBsd0ybwCLdiFNSaQA5UgNpoizjH8yGYxO895kdytlAKLyegPvb1j0xYjMxGrKzvQQvMjlnEExlQ==
   dependencies:
     "@byted-creative/app_log" "^0.0.7"
-    "@byted-creative/pvp-client" "0.0.2-beta-1"
+    "@byted-creative/pvp-client" "0.0.2-beta-3"
+    redux "^4.0.5"
+
+"@byted-creative/tiago@2.0.4":
+  version "2.0.4"
+  resolved "https://registry.npmjs.org/@byted-creative/tiago/-/tiago-2.0.4.tgz#dfb7d4d2d44c5eec67bd91494b452d5fd56d2a50"
+  integrity sha512-fFqGZ3a185o8QmzGSG7ORV8E6HOcDkWi6aEK8B3EpFMvyUfhTUgHJTVm+3YxoB14HsFNNPn4h/boe5Z6RfnTCw==
+  dependencies:
+    "@byted-creative/app_log" "^0.0.7"
+    "@byted-creative/pvp-client" "0.0.2-beta-4"
     redux "^4.0.5"
 
 eventemitter3@^3.1.2:
