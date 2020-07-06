@@ -31,10 +31,10 @@
     "@byted-creative/pvp-client" "0.0.2-beta-3"
     redux "^4.0.5"
 
-"@byted-creative/tiago@2.0.3":
-  version "2.0.3"
-  resolved "https://registry.npmjs.org/@byted-creative/tiago/-/tiago-2.0.3.tgz#5c3311c8058b3220b67a863a6e1b776dfe4e1d76"
-  integrity sha512-DKpJlMpbeEgm2L9vUrrQk9qxQ2EYBHTW67qz3FSALhvfJIbr1DJAWYkUFmEyfy2nz4/9HQaOqlCwY+q+SArOKw==
+"@byted-creative/tiago@2.0.4":
+  version "2.0.4"
+  resolved "https://registry.npmjs.org/@byted-creative/tiago/-/tiago-2.0.4.tgz#dfb7d4d2d44c5eec67bd91494b452d5fd56d2a50"
+  integrity sha512-fFqGZ3a185o8QmzGSG7ORV8E6HOcDkWi6aEK8B3EpFMvyUfhTUgHJTVm+3YxoB14HsFNNPn4h/boe5Z6RfnTCw==
   dependencies:
     "@byted-creative/app_log" "^0.0.7"
     "@byted-creative/pvp-client" "0.0.2-beta-4"
