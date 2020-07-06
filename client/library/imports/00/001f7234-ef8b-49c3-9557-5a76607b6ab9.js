@@ -64,7 +64,7 @@ var RoomManager = function () {
             });
 
             room.on('close', function () {
-                console.log('[room] 房间关闭!');
+                console.log('[room] 链接断开!');
 
                 // NOTE: 根据需要进行重新连接
                 // setTimeout(() => {
