@@ -19,7 +19,7 @@ cc.Class({
             this.nodeLoading.active = true;
 
             tiago.init({
-                appId: 'tt5e982825c1b2d9a3',
+                appId: 'ttbad4cc6925eea862',
                 debug: true,
             }).then(() => {
                 console.log('tiago init success.');

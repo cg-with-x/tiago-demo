@@ -4,9 +4,9 @@ import utils from './utils';
 import dataManager from './data_manager';
 
 cc.Class({
-    extends: cc.Component,
+    extends: cc.Component, 
 
-    playerAOpenId: '', 
+    playerAOpenId: '',   
     playerBOpenId: '',
 
     properties: {
