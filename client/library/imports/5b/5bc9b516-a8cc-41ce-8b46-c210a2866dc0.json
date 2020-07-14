@@ -8641,7 +8641,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "mt-4-ai-disable-match",
+    "_name": "mt-4-disable-match",
     "_objFlags": 0,
     "_parent": {
       "__id__": 11
@@ -8799,7 +8799,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 255,
+      "width": 216.67,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -8850,8 +8850,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "组队-4人-AI-禁匹配",
-    "_N$string": "组队-4人-AI-禁匹配",
+    "_string": "组队-4人-禁匹配",
+    "_N$string": "组队-4人-禁匹配",
     "_fontSize": 30,
     "_lineHeight": 40,
     "_enableWrapText": false,
@@ -9025,7 +9025,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "mt-4-ai-disable-invite",
+    "_name": "mt-4-disable-invite",
     "_objFlags": 0,
     "_parent": {
       "__id__": 11
@@ -9183,7 +9183,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 255,
+      "width": 216.67,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -9234,8 +9234,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "组队-4人-AI-禁邀请",
-    "_N$string": "组队-4人-AI-禁邀请",
+    "_string": "组队-4人-禁邀请",
+    "_N$string": "组队-4人-禁邀请",
     "_fontSize": 30,
     "_lineHeight": 40,
     "_enableWrapText": false,

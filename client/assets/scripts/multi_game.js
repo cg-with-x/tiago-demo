@@ -49,9 +49,9 @@ cc.Class({
     },
 
     onClickBack() {
-        cc.director.loadScene('start');
+        cc.director.loadScene('start');      
 
-        // NOTE: 推出连麦
+        // NOTE: 退出连麦
         if (dataManager.tiago) dataManager.tiago.leaveRTCFromGameRoom(roomManager.room);
         roomManager.leave();
 

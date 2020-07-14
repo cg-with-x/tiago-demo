@@ -62,7 +62,7 @@ cc.Class({
     onClickBack: function onClickBack() {
         cc.director.loadScene('start');
 
-        // NOTE: 推出连麦
+        // NOTE: 退出连麦
         if (_data_manager2.default.tiago) _data_manager2.default.tiago.leaveRTCFromGameRoom(_room_manager2.default.room);
         _room_manager2.default.leave();
 

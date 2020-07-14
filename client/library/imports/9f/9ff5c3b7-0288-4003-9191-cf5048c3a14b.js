@@ -210,12 +210,10 @@ cc.Class({
         _tiago2.default.makeTeam({
             teamSize: 4, // 2-9 人
             isAutoJoinRTC: true, // 默认组队时进行连麦
+            disableMatch: true, // 禁用匹配，因此只有组满人才会开始游戏；match 中 minPlayerCount、isAutoAppendAI 字段就会被忽略。
             match: {
                 type: _tiago2.default.MATCH_TYPE.Single, // SINGLE, NVN,
-                minPlayerCount: 1, // 1 个人就能玩
-                isAutoAppendAI: true, // 配合 SINGLE，字段，默认不补充 AI，NVN 匹配时不支持 AI
-                gameRoomScriptId: 'room-283', // 房间服务适用、指定不同的游戏房间脚本 ID（注意不是脚本名称）、配合 IDE 上传房间脚本时使用
-                disableMatch: true // 默认自动创建游戏房间，可以关闭（生肖派对），关闭后，gameRoomScriptId 字段失效
+                gameRoomScriptId: 'room-283' // 房间服务适用、指定不同的游戏房间脚本 ID（注意不是脚本名称）、配合 IDE 上传房间脚本时使用
             }
         });
     },
@@ -227,12 +225,10 @@ cc.Class({
         _tiago2.default.makeTeam({
             teamSize: 4, // 2-9 人
             isAutoJoinRTC: true, // 默认组队时进行连麦
+            disableInvite: true, // 特殊功能，禁用邀请后，会自动开始单人匹配；match 中 minPlayerCount、isAutoAppendAI 字段就会被忽略。
             match: {
                 type: _tiago2.default.MATCH_TYPE.Single, // SINGLE, NVN,
-                minPlayerCount: 1, // 1 个人就能玩
-                isAutoAppendAI: true, // 配合 SINGLE，字段，默认不补充 AI，NVN 匹配时不支持 AI
-                gameRoomScriptId: 'room-283', // 房间服务适用、指定不同的游戏房间脚本 ID（注意不是脚本名称）、配合 IDE 上传房间脚本时使用
-                disableInvite: true // 默认自动创建游戏房间，可以关闭（生肖派对），关闭后，gameRoomScriptId 字段失效
+                gameRoomScriptId: 'room-283' // 房间服务适用、指定不同的游戏房间脚本 ID（注意不是脚本名称）、配合 IDE 上传房间脚本时使用
             }
         });
     },
