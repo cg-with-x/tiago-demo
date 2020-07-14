@@ -178,6 +178,47 @@ cc.Class({
         // NOTE: 后续的逻辑，都会由 tiago init 时传入的 `onJoinTeam` 回调触发
     },
 
+    onClickDisableMatch() {
+        // NOTE: 创建新队伍前，先清理一下
+        dataManager.currentTeam = null;
+
+        // NOTE: 创建一个队伍，匹配时进行 Single 类型匹配
+        tiago.makeTeam({
+            teamSize: 4,  // 2-9 人
+            isAutoJoinRTC: true, // 默认组队时进行连麦
+            match: {
+                type: tiago.MATCH_TYPE.Single, // SINGLE, NVN,
+                minPlayerCount: 1, // 1 个人就能玩
+                isAutoAppendAI: true, // 配合 SINGLE，字段，默认不补充 AI，NVN 匹配时不支持 AI
+                gameRoomScriptId: 'room-283', // 房间服务适用、指定不同的游戏房间脚本 ID（注意不是脚本名称）、配合 IDE 上传房间脚本时使用
+                disableMatch: true, // 默认自动创建游戏房间，可以关闭（生肖派对），关闭后，gameRoomScriptId 字段失效
+            },
+        });
+    },
+
+    onClickDisableInvite() {
+        // NOTE: 创建新队伍前，先清理一下
+        dataManager.currentTeam = null;
+
+        // NOTE: 创建一个队伍，匹配时进行 Single 类型匹配
+        tiago.makeTeam({
+            teamSize: 4,  // 2-9 人
+            isAutoJoinRTC: true, // 默认组队时进行连麦
+            match: {
+                type: tiago.MATCH_TYPE.Single, // SINGLE, NVN,
+                minPlayerCount: 1, // 1 个人就能玩
+                isAutoAppendAI: true, // 配合 SINGLE，字段，默认不补充 AI，NVN 匹配时不支持 AI
+                gameRoomScriptId: 'room-283', // 房间服务适用、指定不同的游戏房间脚本 ID（注意不是脚本名称）、配合 IDE 上传房间脚本时使用
+                disableInvite: true, // 默认自动创建游戏房间，可以关闭（生肖派对），关闭后，gameRoomScriptId 字段失效
+            },
+        });
+    },
+
+    onClickMoveMic() {
+        // NOTE: 如果麦克风默认的位置影响了游戏 UI 显示，可以使用改接口更改位置
+        tiago.setMicPanelOffset(200, 200);
+    },
+
     onClickRoom() {
         cc.director.loadScene('room');
     },
