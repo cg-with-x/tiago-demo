@@ -785,7 +785,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 275.11,
+      "width": 288.43,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -836,8 +836,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "移动连麦到 200, 200",
-    "_N$string": "移动连麦到 200, 200",
+    "_string": "设置连麦偏移 10, 100",
+    "_N$string": "设置连麦偏移 10, 100",
     "_fontSize": 30,
     "_lineHeight": 40,
     "_enableWrapText": false,

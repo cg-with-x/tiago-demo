@@ -70,8 +70,8 @@
     "relativePath": "scripts"
   },
   "5bc9b516-a8cc-41ce-8b46-c210a2866dc0": {
-    "asset": 1594712274700,
-    "meta": 1594712274713,
+    "asset": 1594713648279,
+    "meta": 1594713648291,
     "relativePath": "start.fire"
   },
   "66196d12-705f-42dc-b182-6a8b95583fc0": {
@@ -500,8 +500,8 @@
     "relativePath": "scripts/multi_game.js"
   },
   "9ff5c3b7-0288-4003-9191-cf5048c3a14b": {
-    "asset": 1594712249712,
-    "meta": 1594712252488,
+    "asset": 1594713588117,
+    "meta": 1594713589329,
     "relativePath": "scripts/start.js"
   }
 }

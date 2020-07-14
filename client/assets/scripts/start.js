@@ -4,7 +4,7 @@ import dataManager from './data_manager';
 import utils from './utils';
 
 cc.Class({
-    extends: cc.Component,        
+    extends: cc.Component,      
 
     properties: {
         labelNickName: cc.Label,
@@ -216,7 +216,7 @@ cc.Class({
 
     onClickMoveMic() {
         // NOTE: 如果麦克风默认的位置影响了游戏 UI 显示，可以使用改接口更改位置
-        tiago.setMicPanelOffset(200, 200);
+        tiago.setMicPanelOffset(10, 100);
     },
 
     onClickRoom() {

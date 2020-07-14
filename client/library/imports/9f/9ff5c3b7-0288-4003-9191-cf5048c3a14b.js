@@ -238,7 +238,7 @@ cc.Class({
     },
     onClickMoveMic: function onClickMoveMic() {
         // NOTE: 如果麦克风默认的位置影响了游戏 UI 显示，可以使用改接口更改位置
-        _tiago2.default.setMicPanelOffset(200, 200);
+        _tiago2.default.setMicPanelOffset(10, 100);
     },
     onClickRoom: function onClickRoom() {
         cc.director.loadScene('room');
