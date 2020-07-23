@@ -40,7 +40,8 @@ class RoomManager {
 
         room.on('close', () => {
             console.log('[room] 链接断开!');
-
+            tiago.leaveRTCFromGameRoom(room);
+            
             // NOTE: 根据需要进行重新连接
             // setTimeout(() => {
             //     room.reconnect();
@@ -53,6 +54,7 @@ class RoomManager {
 
         room.on('reconnecting', (param) => {
             console.log('[room] 重连中...', param);
+            tiago.joinRTCForGameRoom(room);
         });
     }
 
