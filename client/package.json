@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/cg-with-x/tiago-demo#readme",
   "dependencies": {
-    "@byted-creative/tiago": "2.1.6"
+    "@byted-creative/tiago": "^2.1.7"
   }
 }
