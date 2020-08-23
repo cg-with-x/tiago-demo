@@ -109,6 +109,7 @@ cc.Class({
       // 可以先切换场景，然后连入游戏房间
       cc.director.loadScene("game", () => {
         // NOTE: 随后可以加入游戏房间
+        dataManager.isGameEnd = false;
         const room = tiago.joinGameRoom({
           roomNum: result.roomNum,
         });
@@ -133,9 +134,10 @@ cc.Class({
             },
           });
           // do somethine;
-          if (dataManager.tiago) {
+          dataManager.videoTempPath = res.videoPath;
+          if (dataManager.tiago && dataManager.videoTempPath && dataManager.isGameEnd) {
             dataManager.tiago
-              .uploadVideo(res.videoPath, "Hello Wonderland")
+              .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
               .then(() => {
                 tt.hideLoading();
                 tt.showToast({
@@ -184,6 +186,7 @@ cc.Class({
       // 可以先切换场景，然后连入游戏房间
       cc.director.loadScene("game", () => {
         // NOTE: 随后可以加入游戏房间
+        dataManager.isGameEnd = false;
         const room = tiago.joinGameRoom({
           roomNum: result.roomNum,
         });
@@ -207,9 +210,15 @@ cc.Class({
               },
             });
             // do somethine;
-            if (dataManager.tiago) {
+              
+            dataManager.videoTempPath = res.videoPath;
+            if (
+              dataManager.tiago &&
+              dataManager.videoTempPath &&
+              dataManager.isGameEnd
+            ) {
               dataManager.tiago
-                .uploadVideo(res.videoPath, "Hello Wonderland")
+                .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
                 .then(() => {
                   tt.hideLoading();
                   tt.showToast({
@@ -328,7 +337,8 @@ cc.Class({
 
       // NOTE: 如果游戏场景比较复杂，可以预加载一下
       // 可以先切换场景，然后连入游戏房间
-      cc.director.loadScene("multi-game", () => {
+        cc.director.loadScene("multi-game", () => {
+            dataManager.isGameEnd = false;
         // NOTE: 随后可以加入游戏房间
         const room = tiago.joinGameRoom({
           roomNum: result.roomNum,
@@ -352,9 +362,10 @@ cc.Class({
               },
             });
             // do somethine;
-            if (dataManager.tiago) {
+            dataManager.videoTempPath = res.videoPath;
+            if (dataManager.tiago && dataManager.videoTempPath && dataManager.isGameEnd) {
               dataManager.tiago
-                .uploadVideo(res.videoPath, "Hello Wonderland")
+                .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
                 .then(() => {
                   tt.hideLoading();
                   tt.showToast({

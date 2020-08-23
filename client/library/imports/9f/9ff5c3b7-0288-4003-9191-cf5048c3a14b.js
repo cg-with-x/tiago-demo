@@ -127,13 +127,14 @@ cc.Class({
       // 可以先切换场景，然后连入游戏房间
       cc.director.loadScene("game", function () {
         // NOTE: 随后可以加入游戏房间
+        _data_manager2.default.isGameEnd = false;
         var room = _tiago2.default.joinGameRoom({
           roomNum: result.roomNum
         });
         if (_tiago2.default.utils.isTT()) {
           _data_manager2.default.gameRecorderManager = tt.getGameRecorderManager();
           _data_manager2.default.gameRecorderManager.start({
-            duration: 10
+            duration: 300
           });
           console.log("录屏开始");
         }
@@ -151,8 +152,9 @@ cc.Class({
             }
           });
           // do somethine;
-          if (_data_manager2.default.tiago) {
-            _data_manager2.default.tiago.uploadVideo(res.videoPath, "Hello Wonderland").then(function () {
+          _data_manager2.default.videoTempPath = res.videoPath;
+          if (_data_manager2.default.tiago && _data_manager2.default.videoTempPath && _data_manager2.default.isGameEnd) {
+            _data_manager2.default.tiago.uploadVideo(_data_manager2.default.videoTempPath, "Hello Wonderland").then(function () {
               tt.hideLoading();
               tt.showToast({
                 title: "\u5F55\u5C4F\u4E0A\u4F20\u6210\u529F",
@@ -198,6 +200,7 @@ cc.Class({
       // 可以先切换场景，然后连入游戏房间
       cc.director.loadScene("game", function () {
         // NOTE: 随后可以加入游戏房间
+        _data_manager2.default.isGameEnd = false;
         var room = _tiago2.default.joinGameRoom({
           roomNum: result.roomNum
         });
@@ -205,7 +208,7 @@ cc.Class({
           _data_manager2.default.gameRecorderManager = tt.getGameRecorderManager();
           console.warn("录屏开始");
           _data_manager2.default.gameRecorderManager.start({
-            duration: 10
+            duration: 300
           });
           _data_manager2.default.gameRecorderManager.onStop(function (res) {
             console.warn("录屏结束");
@@ -221,8 +224,10 @@ cc.Class({
               }
             });
             // do somethine;
-            if (_data_manager2.default.tiago) {
-              _data_manager2.default.tiago.uploadVideo(res.videoPath, "Hello Wonderland").then(function () {
+
+            _data_manager2.default.videoTempPath = res.videoPath;
+            if (_data_manager2.default.tiago && _data_manager2.default.videoTempPath && _data_manager2.default.isGameEnd) {
+              _data_manager2.default.tiago.uploadVideo(_data_manager2.default.videoTempPath, "Hello Wonderland").then(function () {
                 tt.hideLoading();
                 tt.showToast({
                   title: "\u5F55\u5C4F\u4E0A\u4F20\u6210\u529F",
@@ -338,6 +343,7 @@ cc.Class({
       // NOTE: 如果游戏场景比较复杂，可以预加载一下
       // 可以先切换场景，然后连入游戏房间
       cc.director.loadScene("multi-game", function () {
+        _data_manager2.default.isGameEnd = false;
         // NOTE: 随后可以加入游戏房间
         var room = _tiago2.default.joinGameRoom({
           roomNum: result.roomNum
@@ -346,7 +352,7 @@ cc.Class({
           _data_manager2.default.gameRecorderManager = tt.getGameRecorderManager();
           console.warn("录屏开始");
           _data_manager2.default.gameRecorderManager.start({
-            duration: 10
+            duration: 300
           });
           _data_manager2.default.gameRecorderManager.onStop(function (res) {
             console.warn("录屏结束");
@@ -361,8 +367,9 @@ cc.Class({
               }
             });
             // do somethine;
-            if (_data_manager2.default.tiago) {
-              _data_manager2.default.tiago.uploadVideo(res.videoPath, "Hello Wonderland").then(function () {
+            _data_manager2.default.videoTempPath = res.videoPath;
+            if (_data_manager2.default.tiago && _data_manager2.default.videoTempPath && _data_manager2.default.isGameEnd) {
+              _data_manager2.default.tiago.uploadVideo(_data_manager2.default.videoTempPath, "Hello Wonderland").then(function () {
                 tt.hideLoading();
                 tt.showToast({
                   title: "\u5F55\u5C4F\u4E0A\u4F20\u6210\u529F",

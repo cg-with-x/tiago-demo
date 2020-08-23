@@ -60,11 +60,32 @@ cc.Class({
       dataManager.tiago.leaveRTCFromGameRoom(roomManager.room);
     roomManager.leave();
     console.warn("游戏结束");
+    dataManager.isGameEnd = true;
 
     // NOTE: 如果之前在一个组队中，则回到队伍
     if (dataManager.currentTeam) dataManager.currentTeam.return();
     if (dataManager.gameRecorderManager) {
       dataManager.gameRecorderManager.stop();
+    }
+    if (dataManager.tiago && dataManager.videoTempPath&&dataManager.isGameEnd) {
+      dataManager.tiago
+        .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
+        .then(() => {
+          tt.hideLoading();
+          tt.showToast({
+            title: `录屏上传成功`,
+            icon: "none",
+            duration: 3000,
+          });
+        })
+        .catch((e) => {
+          tt.hideLoading();
+          tt.showToast({
+            title: `录屏上传失败`,
+            icon: "none",
+            duration: 3000,
+          });
+        });
     }
   },
 
