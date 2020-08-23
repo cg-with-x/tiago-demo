@@ -5,10 +5,10 @@
       "main": true,
       "url": "app://editor/index.html",
       "windowType": "dockable",
-      "x": 0,
-      "y": 23,
+      "x": 1920,
+      "y": 99,
       "width": 1680,
-      "height": 946,
+      "height": 1027,
       "layout": {
         "children": [
           {
@@ -18,7 +18,7 @@
                 "children": [
                   "hierarchy"
                 ],
-                "height": 540,
+                "height": 304,
                 "type": "panel",
                 "width": 204
               },
@@ -27,12 +27,12 @@
                 "children": [
                   "assets"
                 ],
-                "height": 322,
+                "height": 569,
                 "type": "panel",
                 "width": 204
               }
             ],
-            "height": 865,
+            "height": 876,
             "type": "dock-v",
             "width": 204
           },
@@ -45,23 +45,23 @@
                     "children": [
                       "scene"
                     ],
-                    "height": 594,
+                    "height": 569,
                     "type": "panel",
-                    "width": 709
+                    "width": 898.96875
                   },
                   {
                     "active": 0,
                     "children": [
                       "node-library"
                     ],
-                    "height": 594,
+                    "height": 569,
                     "type": "panel",
-                    "width": 288
+                    "width": 264
                   }
                 ],
-                "height": 594,
+                "height": 569,
                 "type": "dock-h",
-                "width": 1000
+                "width": 1165.984375
               },
               {
                 "active": 0,
@@ -70,14 +70,14 @@
                   "timeline",
                   "game-window"
                 ],
-                "height": 268,
+                "height": 304,
                 "type": "panel",
-                "width": 1000
+                "width": 1165.984375
               }
             ],
-            "height": 865,
+            "height": 876,
             "type": "dock-v",
-            "width": 1000
+            "width": 1165.984375
           },
           {
             "active": 0,
@@ -85,9 +85,9 @@
               "inspector",
               "cocos-services"
             ],
-            "height": 865,
+            "height": 876,
             "type": "panel",
-            "width": 470
+            "width": 304
           }
         ],
         "type": "dock-h"
@@ -103,7 +103,9 @@
         "inspector",
         "cocos-services"
       ]
-    }
+    },
+    "window-1598168734916": {},
+    "worker": {}
   },
   "panels": {
     "project-settings": {
@@ -113,8 +115,8 @@
       "height": 548
     },
     "builder": {
-      "x": 564,
-      "y": 170,
+      "x": 1309,
+      "y": 117,
       "width": 654,
       "height": 718
     }

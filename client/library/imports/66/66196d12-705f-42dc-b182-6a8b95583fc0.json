@@ -196,7 +196,7 @@
       "array": [
         0,
         0,
-        450.33320996790815,
+        494.5005055609145,
         0,
         0,
         0,
@@ -1891,7 +1891,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 120,
+      "width": 270,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -1942,8 +1942,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "结束游戏",
-    "_N$string": "结束游戏",
+    "_string": "结束游戏并上传录屏",
+    "_N$string": "结束游戏并上传录屏",
     "_fontSize": 30,
     "_lineHeight": 40,
     "_enableWrapText": false,

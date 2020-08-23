@@ -7,20 +7,21 @@
   resolved "https://registry.yarnpkg.com/@byted-creative/app_log/-/app_log-0.0.7.tgz#06ed5ecfe846bd7888d1283835727bc75a562e25"
   integrity sha512-wTEjSJDoDSzGjxU82ajcF8thEGKJMlIPgLpi9ckXbVHw6dsHNF/Mg/LVcVr2WWl53qiSYJ9of+FLWCXzoVP/Mw==
 
-"@byted-creative/pvp-client@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.npmjs.org/@byted-creative/pvp-client/-/pvp-client-0.0.8.tgz#069c6c890aec3d97bf1f08d49baf4990e879c1df"
-  integrity sha512-G5lRPLUvrwhyHsFUSk4WtRlX7/SH0cuRG7mLEHQKEEe6/q2iRYpc4ZSMGCnNxtnhdu6VN1Qwl7NhC6pIjpzsLg==
-  dependencies:
-    eventemitter3 "^3.1.2"
-
-"@byted-creative/tiago@^2.1.7":
-  version "2.1.7"
-  resolved "https://registry.npmjs.org/@byted-creative/tiago/-/tiago-2.1.7.tgz#fdbe797c90335e62c43528a9dd35c40d8a4ca689"
-  integrity sha512-SpWyl8xwnCWjx4aywC4yXbaJHkiYNadVRwLvyBUOkIkosbMD2Ta/5ignLS8vq+QBqFWla32aDn5X4TVDlisf4g==
+"@byted-creative/pvp-client@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.npmjs.org/@byted-creative/pvp-client/-/pvp-client-0.0.11.tgz#89a94eb4e405cc25cd61ed8632f4dbeeb9ada619"
+  integrity sha512-vL7UDs9Kovm0NgFmPtWnkRQHP0gBbxOXkCwxsipqsrUpP4b9YtUbfGq9Hd3XKnb+kYix1AOiRVzgblihZHAXdA==
   dependencies:
     "@byted-creative/app_log" "^0.0.7"
-    "@byted-creative/pvp-client" "^0.0.8"
+    eventemitter3 "^3.1.2"
+
+"@byted-creative/tiago@^2.1.33":
+  version "2.1.33"
+  resolved "https://registry.npmjs.org/@byted-creative/tiago/-/tiago-2.1.33.tgz#6524f4bf81ad686d7b66405c6d3b937e862bd811"
+  integrity sha512-RjBOfe4APCxrBTyraXkeET0P/fx54Qv9AcOo0RF9egLi5r8jyRsNg/pnP2LhrRgazQ6DI04o71IE2LZ4EUlnbA==
+  dependencies:
+    "@byted-creative/app_log" "^0.0.7"
+    "@byted-creative/pvp-client" "^0.0.11"
     redux "^4.0.5"
 
 eventemitter3@^3.1.2:

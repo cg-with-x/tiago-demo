@@ -195,7 +195,7 @@
       "array": [
         0,
         0,
-        476.3139720814413,
+        494.5005055609145,
         0,
         0,
         0,
@@ -2389,7 +2389,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 60,
+      "width": 210,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -2440,8 +2440,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "返回",
-    "_N$string": "返回",
+    "_string": "返回并上传录屏",
+    "_N$string": "返回并上传录屏",
     "_fontSize": 30,
     "_lineHeight": 40,
     "_enableWrapText": false,
