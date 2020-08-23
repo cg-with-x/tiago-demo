@@ -115,7 +115,7 @@ cc.Class({
         if (tiago.utils.isTT()) {
           dataManager.gameRecorderManager = tt.getGameRecorderManager();
           dataManager.gameRecorderManager.start({
-            duration: 10,
+            duration: 300,
           });
           console.log("录屏开始");
         }
@@ -191,7 +191,7 @@ cc.Class({
           dataManager.gameRecorderManager = tt.getGameRecorderManager();
           console.warn("录屏开始");
           dataManager.gameRecorderManager.start({
-            duration: 10,
+            duration: 300,
           });
           dataManager.gameRecorderManager.onStop((res) => {
             console.warn("录屏结束");
@@ -337,7 +337,7 @@ cc.Class({
           dataManager.gameRecorderManager = tt.getGameRecorderManager();
           console.warn("录屏开始");
           dataManager.gameRecorderManager.start({
-            duration: 10,
+            duration: 300,
           });
           dataManager.gameRecorderManager.onStop((res) => {
             console.warn("录屏结束");
