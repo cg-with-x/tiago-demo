@@ -127,6 +127,7 @@ cc.Class({
       // 可以先切换场景，然后连入游戏房间
       cc.director.loadScene("game", function () {
         // NOTE: 随后可以加入游戏房间
+        _data_manager2.default.videoTempPath = null;
         _data_manager2.default.isGameEnd = false;
         var room = _tiago2.default.joinGameRoom({
           roomNum: result.roomNum
@@ -142,33 +143,11 @@ cc.Class({
           console.warn("录屏结束");
           console.log(res.videoPath);
           // do somethine;
-          tt.showLoading({
-            title: "上传中，请稍后...",
-            success: function success(res) {
-              console.log("" + res);
-            },
-            fail: function fail(res) {
-              console.log("showLoading\u8C03\u7528\u5931\u8D25");
-            }
-          });
+
           // do somethine;
           _data_manager2.default.videoTempPath = res.videoPath;
           if (_data_manager2.default.tiago && _data_manager2.default.videoTempPath && _data_manager2.default.isGameEnd) {
-            _data_manager2.default.tiago.uploadVideo(_data_manager2.default.videoTempPath, "Hello Wonderland").then(function () {
-              tt.hideLoading();
-              tt.showToast({
-                title: "\u5F55\u5C4F\u4E0A\u4F20\u6210\u529F",
-                icon: "none",
-                duration: 3000
-              });
-            }).catch(function (e) {
-              tt.hideLoading();
-              tt.showToast({
-                title: "\u5F55\u5C4F\u4E0A\u4F20\u5931\u8D25",
-                icon: "none",
-                duration: 3000
-              });
-            });
+            _data_manager2.default.tiago.uploadVideo(_data_manager2.default.videoTempPath, "Hello Wonderland").then(function () {}).catch(function (e) {});
           }
         });
         // NOTE: 加入房间连麦
@@ -200,6 +179,7 @@ cc.Class({
       // 可以先切换场景，然后连入游戏房间
       cc.director.loadScene("game", function () {
         // NOTE: 随后可以加入游戏房间
+        _data_manager2.default.videoTempPath = null;
         _data_manager2.default.isGameEnd = false;
         var room = _tiago2.default.joinGameRoom({
           roomNum: result.roomNum
@@ -214,33 +194,13 @@ cc.Class({
             console.warn("录屏结束");
             console.log(res.videoPath);
             // do somethine;
-            tt.showLoading({
-              title: "上传中，请稍后...",
-              success: function success(res) {
-                console.log("" + res);
-              },
-              fail: function fail(res) {
-                console.log("showLoading\u8C03\u7528\u5931\u8D25");
-              }
-            });
+
             // do somethine;
 
             _data_manager2.default.videoTempPath = res.videoPath;
             if (_data_manager2.default.tiago && _data_manager2.default.videoTempPath && _data_manager2.default.isGameEnd) {
-              _data_manager2.default.tiago.uploadVideo(_data_manager2.default.videoTempPath, "Hello Wonderland").then(function () {
+              _data_manager2.default.tiago.uploadVideo(_data_manager2.default.videoTempPath, "Hello Wonderland").then(function () {}).catch(function (e) {
                 tt.hideLoading();
-                tt.showToast({
-                  title: "\u5F55\u5C4F\u4E0A\u4F20\u6210\u529F",
-                  icon: "none",
-                  duration: 3000
-                });
-              }).catch(function (e) {
-                tt.hideLoading();
-                tt.showToast({
-                  title: "\u5F55\u5C4F\u4E0A\u4F20\u5931\u8D25",
-                  icon: "none",
-                  duration: 3000
-                });
               });
             }
           });
@@ -343,6 +303,7 @@ cc.Class({
       // NOTE: 如果游戏场景比较复杂，可以预加载一下
       // 可以先切换场景，然后连入游戏房间
       cc.director.loadScene("multi-game", function () {
+        _data_manager2.default.videoTempPath = null;
         _data_manager2.default.isGameEnd = false;
         // NOTE: 随后可以加入游戏房间
         var room = _tiago2.default.joinGameRoom({
@@ -357,33 +318,11 @@ cc.Class({
           _data_manager2.default.gameRecorderManager.onStop(function (res) {
             console.warn("录屏结束");
             console.log(res.videoPath);
-            tt.showLoading({
-              title: "上传中，请稍后...",
-              success: function success(res) {
-                console.log("" + res);
-              },
-              fail: function fail(res) {
-                console.log("showLoading\u8C03\u7528\u5931\u8D25");
-              }
-            });
+
             // do somethine;
             _data_manager2.default.videoTempPath = res.videoPath;
             if (_data_manager2.default.tiago && _data_manager2.default.videoTempPath && _data_manager2.default.isGameEnd) {
-              _data_manager2.default.tiago.uploadVideo(_data_manager2.default.videoTempPath, "Hello Wonderland").then(function () {
-                tt.hideLoading();
-                tt.showToast({
-                  title: "\u5F55\u5C4F\u4E0A\u4F20\u6210\u529F",
-                  icon: "none",
-                  duration: 3000
-                });
-              }).catch(function (e) {
-                tt.hideLoading();
-                tt.showToast({
-                  title: "\u5F55\u5C4F\u4E0A\u4F20\u5931\u8D25",
-                  icon: "none",
-                  duration: 3000
-                });
-              });
+              _data_manager2.default.tiago.uploadVideo(_data_manager2.default.videoTempPath, "Hello Wonderland").then(function () {}).catch(function (e) {});
             }
           });
         }

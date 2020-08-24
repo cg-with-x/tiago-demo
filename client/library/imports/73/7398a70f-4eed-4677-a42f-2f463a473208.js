@@ -45,11 +45,9 @@ cc.Class({
     }));
     // NOTE: 推出连麦
     if (_data_manager2.default.tiago) _data_manager2.default.tiago.leaveRTCFromGameRoom(_room_manager2.default.room);
-    console.warn('游戏结束');
+    console.warn("游戏结束");
     _data_manager2.default.isGameEnd = true;
-    if (_data_manager2.default.gameRecorderManager) {
-      _data_manager2.default.gameRecorderManager.stop();
-    }
+
     if (_data_manager2.default.tiago && _data_manager2.default.videoTempPath && _data_manager2.default.isGameEnd) {
       _data_manager2.default.tiago.uploadVideo(_data_manager2.default.videoTempPath, "Hello Wonderland").then(function () {
         tt.hideLoading();
@@ -60,12 +58,18 @@ cc.Class({
         });
       }).catch(function (e) {
         tt.hideLoading();
-        tt.showToast({
-          title: "\u5F55\u5C4F\u4E0A\u4F20\u5931\u8D25",
-          icon: "none",
-          duration: 3000
-        });
+        if (e.code !== 401) {
+          tt.hideLoading();
+          tt.showToast({
+            title: "\u5F55\u5C4F\u4E0A\u4F20\u5931\u8D25",
+            icon: "none",
+            duration: 3000
+          });
+        }
       });
+    }
+    if (_data_manager2.default.gameRecorderManager) {
+      _data_manager2.default.gameRecorderManager.stop();
     }
     _room_manager2.default.leave();
     cc.director.loadScene("start");
@@ -123,10 +127,6 @@ cc.Class({
             if (_data_manager2.default.currentTeam) _data_manager2.default.currentTeam.return();
             console.warn("游戏结束");
             _data_manager2.default.isGameEnd = true;
-            if (_data_manager2.default.gameRecorderManager) {
-
-              _data_manager2.default.gameRecorderManager.stop();
-            }
 
             if (_data_manager2.default.tiago && _data_manager2.default.videoTempPath && _data_manager2.default.isGameEnd) {
               _data_manager2.default.tiago.uploadVideo(_data_manager2.default.videoTempPath, "Hello Wonderland").then(function () {
@@ -137,13 +137,18 @@ cc.Class({
                   duration: 3000
                 });
               }).catch(function (e) {
-                tt.hideLoading();
-                tt.showToast({
-                  title: "\u5F55\u5C4F\u4E0A\u4F20\u5931\u8D25",
-                  icon: "none",
-                  duration: 3000
-                });
+                if (e.code !== 401) {
+                  tt.hideLoading();
+                  tt.showToast({
+                    title: "\u5F55\u5C4F\u4E0A\u4F20\u5931\u8D25",
+                    icon: "none",
+                    duration: 3000
+                  });
+                }
               });
+            }
+            if (_data_manager2.default.gameRecorderManager) {
+              _data_manager2.default.gameRecorderManager.stop();
             }
 
             break;

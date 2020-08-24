@@ -32,11 +32,9 @@ cc.Class({
     // NOTE: 推出连麦
     if (dataManager.tiago)
       dataManager.tiago.leaveRTCFromGameRoom(roomManager.room);
-    console.warn('游戏结束')
+    console.warn("游戏结束");
     dataManager.isGameEnd = true;
-    if (dataManager.gameRecorderManager) {
-      dataManager.gameRecorderManager.stop();
-    }
+
     if (
       dataManager.tiago &&
       dataManager.videoTempPath &&
@@ -54,12 +52,18 @@ cc.Class({
         })
         .catch((e) => {
           tt.hideLoading();
-          tt.showToast({
-            title: `录屏上传失败`,
-            icon: "none",
-            duration: 3000,
-          });
+          if (e.code !== 401) {
+            tt.hideLoading();
+            tt.showToast({
+              title: `录屏上传失败`,
+              icon: "none",
+              duration: 3000,
+            });
+          }
         });
+    }
+    if (dataManager.gameRecorderManager) {
+      dataManager.gameRecorderManager.stop();
     }
     roomManager.leave();
     cc.director.loadScene("start");
@@ -112,16 +116,12 @@ cc.Class({
             // NOTE: 推出连麦
             if (dataManager.tiago)
               dataManager.tiago.leaveRTCFromGameRoom(roomManager.room);
-              roomManager.leave();
-              cc.director.loadScene("start");
+            roomManager.leave();
+            cc.director.loadScene("start");
             // NOTE: 如果之前在一个组队中，则回到队伍
             if (dataManager.currentTeam) dataManager.currentTeam.return();
-          console.warn("游戏结束");
+            console.warn("游戏结束");
             dataManager.isGameEnd = true;
-            if (dataManager.gameRecorderManager) {
-              
-              dataManager.gameRecorderManager.stop();
-            }
 
             if (
               dataManager.tiago &&
@@ -139,13 +139,18 @@ cc.Class({
                   });
                 })
                 .catch((e) => {
-                  tt.hideLoading();
-                  tt.showToast({
-                    title: `录屏上传失败`,
-                    icon: "none",
-                    duration: 3000,
-                  });
+                  if (e.code !== 401) {
+                    tt.hideLoading();
+                    tt.showToast({
+                      title: `录屏上传失败`,
+                      icon: "none",
+                      duration: 3000,
+                    });
+                  }
                 });
+            }
+            if (dataManager.gameRecorderManager) {
+              dataManager.gameRecorderManager.stop();
             }
 
             break;

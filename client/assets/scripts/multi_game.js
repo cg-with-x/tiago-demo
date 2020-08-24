@@ -64,10 +64,7 @@ cc.Class({
 
     // NOTE: 如果之前在一个组队中，则回到队伍
     if (dataManager.currentTeam) dataManager.currentTeam.return();
-    if (dataManager.gameRecorderManager) {
-      dataManager.gameRecorderManager.stop();
-    }
-    if (dataManager.tiago && dataManager.videoTempPath&&dataManager.isGameEnd) {
+    if (dataManager.tiago && dataManager.videoTempPath && dataManager.isGameEnd) {
       dataManager.tiago
         .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
         .then(() => {
@@ -80,12 +77,18 @@ cc.Class({
         })
         .catch((e) => {
           tt.hideLoading();
-          tt.showToast({
-            title: `录屏上传失败`,
-            icon: "none",
-            duration: 3000,
-          });
+          if (e.code !== 401) {
+            tt.hideLoading();
+            tt.showToast({
+              title: `录屏上传失败`,
+              icon: "none",
+              duration: 3000,
+            });
+          }
         });
+    }
+    if (dataManager.gameRecorderManager) {
+      dataManager.gameRecorderManager.stop();
     }
   },
 

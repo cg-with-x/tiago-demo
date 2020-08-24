@@ -109,6 +109,7 @@ cc.Class({
       // 可以先切换场景，然后连入游戏房间
       cc.director.loadScene("game", () => {
         // NOTE: 随后可以加入游戏房间
+        dataManager.videoTempPath = null;
         dataManager.isGameEnd = false;
         const room = tiago.joinGameRoom({
           roomNum: result.roomNum,
@@ -124,35 +125,21 @@ cc.Class({
           console.warn("录屏结束");
           console.log(res.videoPath);
           // do somethine;
-          tt.showLoading({
-            title: "上传中，请稍后...",
-            success(res) {
-              console.log(`${res}`);
-            },
-            fail(res) {
-              console.log(`showLoading调用失败`);
-            },
-          });
+          
           // do somethine;
           dataManager.videoTempPath = res.videoPath;
-          if (dataManager.tiago && dataManager.videoTempPath && dataManager.isGameEnd) {
+          if (
+            dataManager.tiago &&
+            dataManager.videoTempPath &&
+            dataManager.isGameEnd
+          ) {
             dataManager.tiago
               .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
               .then(() => {
-                tt.hideLoading();
-                tt.showToast({
-                  title: `录屏上传成功`,
-                  icon: "none",
-                  duration: 3000,
-                });
+                
               })
               .catch((e) => {
-                tt.hideLoading();
-                tt.showToast({
-                  title: `录屏上传失败`,
-                  icon: "none",
-                  duration: 3000,
-                });
+                
               });
           }
         });
@@ -186,6 +173,7 @@ cc.Class({
       // 可以先切换场景，然后连入游戏房间
       cc.director.loadScene("game", () => {
         // NOTE: 随后可以加入游戏房间
+        dataManager.videoTempPath = null;
         dataManager.isGameEnd = false;
         const room = tiago.joinGameRoom({
           roomNum: result.roomNum,
@@ -200,17 +188,9 @@ cc.Class({
             console.warn("录屏结束");
             console.log(res.videoPath);
             // do somethine;
-            tt.showLoading({
-              title: "上传中，请稍后...",
-              success(res) {
-                console.log(`${res}`);
-              },
-              fail(res) {
-                console.log(`showLoading调用失败`);
-              },
-            });
+            
             // do somethine;
-              
+
             dataManager.videoTempPath = res.videoPath;
             if (
               dataManager.tiago &&
@@ -220,20 +200,11 @@ cc.Class({
               dataManager.tiago
                 .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
                 .then(() => {
-                  tt.hideLoading();
-                  tt.showToast({
-                    title: `录屏上传成功`,
-                    icon: "none",
-                    duration: 3000,
-                  });
+                  
                 })
                 .catch((e) => {
                   tt.hideLoading();
-                  tt.showToast({
-                    title: `录屏上传失败`,
-                    icon: "none",
-                    duration: 3000,
-                  });
+                  
                 });
             }
           });
@@ -337,8 +308,9 @@ cc.Class({
 
       // NOTE: 如果游戏场景比较复杂，可以预加载一下
       // 可以先切换场景，然后连入游戏房间
-        cc.director.loadScene("multi-game", () => {
-            dataManager.isGameEnd = false;
+      cc.director.loadScene("multi-game", () => {
+        dataManager.videoTempPath = null;
+        dataManager.isGameEnd = false;
         // NOTE: 随后可以加入游戏房间
         const room = tiago.joinGameRoom({
           roomNum: result.roomNum,
@@ -352,35 +324,21 @@ cc.Class({
           dataManager.gameRecorderManager.onStop((res) => {
             console.warn("录屏结束");
             console.log(res.videoPath);
-            tt.showLoading({
-              title: "上传中，请稍后...",
-              success(res) {
-                console.log(`${res}`);
-              },
-              fail(res) {
-                console.log(`showLoading调用失败`);
-              },
-            });
+            
             // do somethine;
             dataManager.videoTempPath = res.videoPath;
-            if (dataManager.tiago && dataManager.videoTempPath && dataManager.isGameEnd) {
+            if (
+              dataManager.tiago &&
+              dataManager.videoTempPath &&
+              dataManager.isGameEnd
+            ) {
               dataManager.tiago
                 .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
                 .then(() => {
-                  tt.hideLoading();
-                  tt.showToast({
-                    title: `录屏上传成功`,
-                    icon: "none",
-                    duration: 3000,
-                  });
+                  
                 })
                 .catch((e) => {
-                  tt.hideLoading();
-                  tt.showToast({
-                    title: `录屏上传失败`,
-                    icon: "none",
-                    duration: 3000,
-                  });
+                  
                 });
             }
           });

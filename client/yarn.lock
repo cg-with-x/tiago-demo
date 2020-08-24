@@ -15,10 +15,10 @@
     "@byted-creative/app_log" "^0.0.7"
     eventemitter3 "^3.1.2"
 
-"@byted-creative/tiago@^2.1.33":
-  version "2.1.33"
-  resolved "https://registry.npmjs.org/@byted-creative/tiago/-/tiago-2.1.33.tgz#6524f4bf81ad686d7b66405c6d3b937e862bd811"
-  integrity sha512-RjBOfe4APCxrBTyraXkeET0P/fx54Qv9AcOo0RF9egLi5r8jyRsNg/pnP2LhrRgazQ6DI04o71IE2LZ4EUlnbA==
+"@byted-creative/tiago@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.npmjs.org/@byted-creative/tiago/-/tiago-2.2.1.tgz#aa5496514adbc5eb7bca4211fad612d064b442e8"
+  integrity sha512-BeFL1bJgWlRRRptEyKoZ9EoT9lLTQh7o8iqPRxwNVKd/rQemShoHmVx9mX9LLA+PN8GShwzq31fTu1DdCNbU9g==
   dependencies:
     "@byted-creative/app_log" "^0.0.7"
     "@byted-creative/pvp-client" "^0.0.11"
