@@ -46,6 +46,7 @@ cc.Class({
       _tiago2.default.init({
         appId: "tt5e982825c1b2d9a3",
         debug: true,
+        //   gameEnv: tiago.GAME_ENV.Release,
         onJoinTeam: function onJoinTeam(team) {
           console.warn("on join team 1");
           _this.onJoinTeam(team);
@@ -141,6 +142,8 @@ cc.Class({
         }
         _data_manager2.default.gameRecorderManager.onStop(function (res) {
           console.warn("录屏结束");
+          console.warn('lalala');
+          console.warn(res);
           console.log(res.videoPath);
           // do somethine;
 
@@ -192,6 +195,8 @@ cc.Class({
           });
           _data_manager2.default.gameRecorderManager.onStop(function (res) {
             console.warn("录屏结束");
+            console.warn("lalala");
+            console.warn(res);
             console.log(res.videoPath);
             // do somethine;
 
@@ -199,9 +204,7 @@ cc.Class({
 
             _data_manager2.default.videoTempPath = res.videoPath;
             if (_data_manager2.default.tiago && _data_manager2.default.videoTempPath && _data_manager2.default.isGameEnd) {
-              _data_manager2.default.tiago.uploadVideo(_data_manager2.default.videoTempPath, "Hello Wonderland").then(function () {}).catch(function (e) {
-                tt.hideLoading();
-              });
+              _data_manager2.default.tiago.uploadVideo(_data_manager2.default.videoTempPath, "Hello Wonderland").then(function () {}).catch(function (e) {});
             }
           });
         }
@@ -317,6 +320,8 @@ cc.Class({
           });
           _data_manager2.default.gameRecorderManager.onStop(function (res) {
             console.warn("录屏结束");
+            console.warn("lalala");
+            console.warn(res);
             console.log(res.videoPath);
 
             // do somethine;

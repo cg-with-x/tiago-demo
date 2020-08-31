@@ -71,24 +71,7 @@ cc.Class({
     // NOTE: 如果之前在一个组队中，则回到队伍
     if (_data_manager2.default.currentTeam) _data_manager2.default.currentTeam.return();
     if (_data_manager2.default.tiago && _data_manager2.default.videoTempPath && _data_manager2.default.isGameEnd) {
-      _data_manager2.default.tiago.uploadVideo(_data_manager2.default.videoTempPath, "Hello Wonderland").then(function () {
-        tt.hideLoading();
-        tt.showToast({
-          title: "\u5F55\u5C4F\u4E0A\u4F20\u6210\u529F",
-          icon: "none",
-          duration: 3000
-        });
-      }).catch(function (e) {
-        tt.hideLoading();
-        if (e.code !== 401) {
-          tt.hideLoading();
-          tt.showToast({
-            title: "\u5F55\u5C4F\u4E0A\u4F20\u5931\u8D25",
-            icon: "none",
-            duration: 3000
-          });
-        }
-      });
+      _data_manager2.default.tiago.uploadVideo(_data_manager2.default.videoTempPath, "Hello Wonderland").then(function () {}).catch(function (e) {});
     }
     if (_data_manager2.default.gameRecorderManager) {
       _data_manager2.default.gameRecorderManager.stop();

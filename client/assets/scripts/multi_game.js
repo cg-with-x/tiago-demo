@@ -68,23 +68,10 @@ cc.Class({
       dataManager.tiago
         .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
         .then(() => {
-          tt.hideLoading();
-          tt.showToast({
-            title: `录屏上传成功`,
-            icon: "none",
-            duration: 3000,
-          });
+          
         })
         .catch((e) => {
-          tt.hideLoading();
-          if (e.code !== 401) {
-            tt.hideLoading();
-            tt.showToast({
-              title: `录屏上传失败`,
-              icon: "none",
-              duration: 3000,
-            });
-          }
+          
         });
     }
     if (dataManager.gameRecorderManager) {

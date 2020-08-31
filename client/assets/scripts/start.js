@@ -24,6 +24,7 @@ cc.Class({
         .init({
           appId: "tt5e982825c1b2d9a3",
           debug: true,
+        //   gameEnv: tiago.GAME_ENV.Release,
           onJoinTeam: (team) => {
             console.warn("on join team 1");
             this.onJoinTeam(team);
@@ -122,7 +123,9 @@ cc.Class({
           console.log("录屏开始");
         }
         dataManager.gameRecorderManager.onStop((res) => {
-          console.warn("录屏结束");
+            console.warn("录屏结束");
+            console.warn('lalala')
+              console.warn(res);
           console.log(res.videoPath);
           // do somethine;
           
@@ -141,6 +144,7 @@ cc.Class({
               .catch((e) => {
                 
               });
+              
           }
         });
         // NOTE: 加入房间连麦
@@ -186,6 +190,8 @@ cc.Class({
           });
           dataManager.gameRecorderManager.onStop((res) => {
             console.warn("录屏结束");
+              console.warn("lalala");
+              console.warn(res);
             console.log(res.videoPath);
             // do somethine;
             
@@ -203,9 +209,9 @@ cc.Class({
                   
                 })
                 .catch((e) => {
-                  tt.hideLoading();
                   
                 });
+              
             }
           });
         }
@@ -323,6 +329,8 @@ cc.Class({
           });
           dataManager.gameRecorderManager.onStop((res) => {
             console.warn("录屏结束");
+            console.warn("lalala");
+              console.warn(res);
             console.log(res.videoPath);
             
             // do somethine;
@@ -340,6 +348,7 @@ cc.Class({
                 .catch((e) => {
                   
                 });
+              
             }
           });
         }
