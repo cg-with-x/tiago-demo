@@ -35,6 +35,7 @@ var RoomManager = function () {
 
             room.on('open', function () {
                 console.log('[room] 进入游戏成功!');
+                _tiago2.default.joinRTCForGameRoom(room);
 
                 _this.room.send(JSON.stringify({
                     event: 'ready'
@@ -65,6 +66,7 @@ var RoomManager = function () {
 
             room.on('close', function () {
                 console.log('[room] 链接断开!');
+                _tiago2.default.leaveRTCFromGameRoom(room);
 
                 // NOTE: 根据需要进行重新连接
                 // setTimeout(() => {
@@ -78,6 +80,7 @@ var RoomManager = function () {
 
             room.on('reconnecting', function (param) {
                 console.log('[room] 重连中...', param);
+                _tiago2.default.joinRTCForGameRoom(room);
             });
         }
     }, {

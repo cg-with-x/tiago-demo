@@ -49,7 +49,14 @@ cc.Class({
     _data_manager2.default.isGameEnd = true;
 
     if (_data_manager2.default.tiago && _data_manager2.default.videoTempPath && _data_manager2.default.isGameEnd) {
-      _data_manager2.default.tiago.uploadVideo(_data_manager2.default.videoTempPath, "Hello Wonderland").then(function () {}).catch(function (e) {});
+      // dataManager.tiago
+      //   .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
+      //   .then(() => {
+
+      //   })
+      //   .catch((e) => {
+
+      //   });
     }
     if (_data_manager2.default.gameRecorderManager) {
       _data_manager2.default.gameRecorderManager.stop();
@@ -112,7 +119,14 @@ cc.Class({
             _data_manager2.default.isGameEnd = true;
 
             if (_data_manager2.default.tiago && _data_manager2.default.videoTempPath && _data_manager2.default.isGameEnd) {
-              _data_manager2.default.tiago.uploadVideo(_data_manager2.default.videoTempPath, "Hello Wonderland").then(function () {}).catch(function (e) {});
+              // dataManager.tiago
+              //   .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
+              //   .then(() => {
+
+              //   })
+              //   .catch((e) => {
+
+              //   });
             }
             if (_data_manager2.default.gameRecorderManager) {
               _data_manager2.default.gameRecorderManager.stop();

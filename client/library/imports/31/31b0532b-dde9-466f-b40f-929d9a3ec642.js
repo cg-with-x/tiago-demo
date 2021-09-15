@@ -71,7 +71,14 @@ cc.Class({
     // NOTE: 如果之前在一个组队中，则回到队伍
     if (_data_manager2.default.currentTeam) _data_manager2.default.currentTeam.return();
     if (_data_manager2.default.tiago && _data_manager2.default.videoTempPath && _data_manager2.default.isGameEnd) {
-      _data_manager2.default.tiago.uploadVideo(_data_manager2.default.videoTempPath, "Hello Wonderland").then(function () {}).catch(function (e) {});
+      // dataManager.tiago
+      //   .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
+      //   .then(() => {
+
+      //   })
+      //   .catch((e) => {
+
+      //   });
     }
     if (_data_manager2.default.gameRecorderManager) {
       _data_manager2.default.gameRecorderManager.stop();

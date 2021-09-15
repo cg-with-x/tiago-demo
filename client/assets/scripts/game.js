@@ -40,14 +40,14 @@ cc.Class({
       dataManager.videoTempPath &&
       dataManager.isGameEnd
     ) {
-      dataManager.tiago
-        .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
-        .then(() => {
+      // dataManager.tiago
+      //   .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
+      //   .then(() => {
           
-        })
-        .catch((e) => {
+      //   })
+      //   .catch((e) => {
           
-        });
+      //   });
     }
     if (dataManager.gameRecorderManager) {
       dataManager.gameRecorderManager.stop();
@@ -59,14 +59,14 @@ cc.Class({
     if (dataManager.currentTeam) dataManager.currentTeam.return();
   },
 
-  onClickTalk() {
-    if (roomManager.room) {
-      roomManager.room.send(
-        JSON.stringify({
+  onClickTalk() { 
+    if (roomManager.room) { 
+      roomManager.room.send(  
+        JSON.stringify({   
           event: "talk",
-          data: parseInt(Math.random() * 100),
+          data: parseInt(Math.random() * 100),   
         })
-      );
+      ); 
     }
   },
 
@@ -81,18 +81,18 @@ cc.Class({
     // NOTE: 开发者可以根据自己的房间脚本和协议，实现自身游戏的逻辑
     const message = JSON.parse(messageStr);
 
-    if (message.length) {
+    if (message.length) { 
       message.forEach(({ event, data }) => {
-        switch (event) {
+        switch (event) { 
           case "game-start":
             break;
-          case "environment":
+          case "environment": 
             dataManager.environment = data;
             break;
           case "info":
             dataManager.twoPlayersInfo = data;
             this.renderPlayers();
-            break;
+            break;  
           case "server-time":
             this.labelServerTime.string = `${dataManager.environment}: ${data}`;
             break;
@@ -114,15 +114,15 @@ cc.Class({
               dataManager.tiago &&
               dataManager.videoTempPath &&
               dataManager.isGameEnd
-            ) {
-              dataManager.tiago
-                .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
-                .then(() => {
+            ) { 
+              // dataManager.tiago
+              //   .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
+              //   .then(() => {
                   
-                })
-                .catch((e) => {
+              //   })
+              //   .catch((e) => {
                   
-                });
+              //   });
             }
             if (dataManager.gameRecorderManager) {
               dataManager.gameRecorderManager.stop();

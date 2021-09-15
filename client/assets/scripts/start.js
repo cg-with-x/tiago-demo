@@ -17,23 +17,26 @@ cc.Class({
     if (!dataManager.tiagoInited) {
       this.nodeFeature.active = false;
       this.nodeLoading.active = true;
-
+      console.log("new version 2.7.6");
       console.log("Tiago", tiago);
-
+  
       tiago
         .init({
-          appId: "tt5e982825c1b2d9a3",
+          appId: "tt5e982825c1b2d9a3", 
           debug: true,
-        //   gameEnv: tiago.GAME_ENV.Release,
+          gameEnv: tiago.GAME_ENV.Test,
+          // gameEnv: tiago.GAME_ENV.Release,
           onJoinTeam: (team) => {
             console.warn("on join team 1");
             this.onJoinTeam(team);
           }, // 2.0 的主要功能，组队，会在受邀加入队伍、或自己创建队伍后触发！
+          hasHomepage: true,
+          // isNormalGame: true,
         })
         .then(() => {
           console.warn("tiago init success.");
           dataManager.tiagoInited = true;
-          dataManager.tiago = tiago;
+          dataManager.tiago = tiago; 
 
           console.warn(dataManager.currentTeam);
 
@@ -48,8 +51,11 @@ cc.Class({
       this.nodeFeature.active = true;
       this.nodeLoading.active = false;
     }
-
+ 
     console.log("loaded");
+    tt.onShow(() => {
+      console.log("tt onshow", dataManager.tiago);
+    }); 
   },
 
   start() {
@@ -123,12 +129,12 @@ cc.Class({
           console.log("录屏开始");
         }
         dataManager.gameRecorderManager.onStop((res) => {
-            console.warn("录屏结束");
-            console.warn('lalala')
-              console.warn(res);
+          console.warn("录屏结束");
+          console.warn("lalala");
+          console.warn(res);
           console.log(res.videoPath);
           // do somethine;
-          
+
           // do somethine;
           dataManager.videoTempPath = res.videoPath;
           if (
@@ -136,15 +142,10 @@ cc.Class({
             dataManager.videoTempPath &&
             dataManager.isGameEnd
           ) {
-            dataManager.tiago
-              .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
-              .then(() => {
-                
-              })
-              .catch((e) => {
-                
-              });
-              
+            // dataManager.tiago
+            //   .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
+            //   .then(() => {})
+            //   .catch((e) => {});
           }
         });
         // NOTE: 加入房间连麦
@@ -190,11 +191,11 @@ cc.Class({
           });
           dataManager.gameRecorderManager.onStop((res) => {
             console.warn("录屏结束");
-              console.warn("lalala");
-              console.warn(res);
+            console.warn("lalala");
+            console.warn(res);
             console.log(res.videoPath);
             // do somethine;
-            
+
             // do somethine;
 
             dataManager.videoTempPath = res.videoPath;
@@ -203,15 +204,10 @@ cc.Class({
               dataManager.videoTempPath &&
               dataManager.isGameEnd
             ) {
-              dataManager.tiago
-                .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
-                .then(() => {
-                  
-                })
-                .catch((e) => {
-                  
-                });
-              
+              // dataManager.tiago
+              //   .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
+              //   .then(() => {})
+              //   .catch((e) => {});
             }
           });
         }
@@ -239,7 +235,7 @@ cc.Class({
 
     // NOTE: 创建新队伍前，先清理一下
     dataManager.currentTeam = null;
-
+     
     // NOTE: 创建一个队伍，匹配时进行 Single 类型匹配
     tiago.makeTeam({
       teamSize: size, // 2-9 人
@@ -297,12 +293,12 @@ cc.Class({
   onClickRoom() {
     cc.director.loadScene("room");
   },
-
+ 
   onJoinTeam(team) {
     console.warn("on join team");
     // NOTE: 可以在适当的时机进行清理，例如：在每次 makeTeam 之前。
-    dataManager.currentTeam = team;
-
+    dataManager.currentTeam = team; 
+  
     team.on("match-success", (result) => {
       // 获得匹配成功后的用户信息
       console.log(result);
@@ -330,9 +326,9 @@ cc.Class({
           dataManager.gameRecorderManager.onStop((res) => {
             console.warn("录屏结束");
             console.warn("lalala");
-              console.warn(res);
+            console.warn(res);
             console.log(res.videoPath);
-            
+
             // do somethine;
             dataManager.videoTempPath = res.videoPath;
             if (
@@ -340,15 +336,10 @@ cc.Class({
               dataManager.videoTempPath &&
               dataManager.isGameEnd
             ) {
-              dataManager.tiago
-                .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
-                .then(() => {
-                  
-                })
-                .catch((e) => {
-                  
-                });
-              
+              // dataManager.tiago
+              //   .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
+              //   .then(() => {})
+              //   .catch((e) => {});
             }
           });
         }

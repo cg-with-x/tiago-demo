@@ -58,21 +58,21 @@ cc.Class({
     // NOTE: 退出连麦
     if (dataManager.tiago)
       dataManager.tiago.leaveRTCFromGameRoom(roomManager.room);
-    roomManager.leave();
+    roomManager.leave(); 
     console.warn("游戏结束");
     dataManager.isGameEnd = true;
 
     // NOTE: 如果之前在一个组队中，则回到队伍
     if (dataManager.currentTeam) dataManager.currentTeam.return();
     if (dataManager.tiago && dataManager.videoTempPath && dataManager.isGameEnd) {
-      dataManager.tiago
-        .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
-        .then(() => {
+      // dataManager.tiago
+      //   .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
+      //   .then(() => {
           
-        })
-        .catch((e) => {
+      //   })
+      //   .catch((e) => {
           
-        });
+      //   });
     }
     if (dataManager.gameRecorderManager) {
       dataManager.gameRecorderManager.stop();

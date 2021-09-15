@@ -12,6 +12,7 @@ class RoomManager {
 
         room.on('open', () => {
             console.log('[room] 进入游戏成功!');
+            tiago.joinRTCForGameRoom(room);
 
             this.room.send(JSON.stringify({
                 event: 'ready',
@@ -54,7 +55,7 @@ class RoomManager {
 
         room.on('reconnecting', (param) => {
             console.log('[room] 重连中...', param);
-            tiago.joinRTCForGameRoom(room);
+            tiago.joinRTCForGameRoom(room); 
         });
     }
 

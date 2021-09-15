@@ -40,17 +40,20 @@ cc.Class({
     if (!_data_manager2.default.tiagoInited) {
       this.nodeFeature.active = false;
       this.nodeLoading.active = true;
-
+      console.log("new version 2.7.6");
       console.log("Tiago", _tiago2.default);
 
       _tiago2.default.init({
         appId: "tt5e982825c1b2d9a3",
         debug: true,
-        //   gameEnv: tiago.GAME_ENV.Release,
+        gameEnv: _tiago2.default.GAME_ENV.Test,
+        // gameEnv: tiago.GAME_ENV.Release,
         onJoinTeam: function onJoinTeam(team) {
           console.warn("on join team 1");
           _this.onJoinTeam(team);
-        } // 2.0 的主要功能，组队，会在受邀加入队伍、或自己创建队伍后触发！
+        }, // 2.0 的主要功能，组队，会在受邀加入队伍、或自己创建队伍后触发！
+        hasHomepage: true
+        // isNormalGame: true,
       }).then(function () {
         console.warn("tiago init success.");
         _data_manager2.default.tiagoInited = true;
@@ -70,6 +73,9 @@ cc.Class({
     }
 
     console.log("loaded");
+    tt.onShow(function () {
+      console.log("tt onshow", _data_manager2.default.tiago);
+    });
   },
   start: function start() {
     if (_data_manager2.default.selfUserInfo) {
@@ -142,7 +148,7 @@ cc.Class({
         }
         _data_manager2.default.gameRecorderManager.onStop(function (res) {
           console.warn("录屏结束");
-          console.warn('lalala');
+          console.warn("lalala");
           console.warn(res);
           console.log(res.videoPath);
           // do somethine;
@@ -150,7 +156,10 @@ cc.Class({
           // do somethine;
           _data_manager2.default.videoTempPath = res.videoPath;
           if (_data_manager2.default.tiago && _data_manager2.default.videoTempPath && _data_manager2.default.isGameEnd) {
-            _data_manager2.default.tiago.uploadVideo(_data_manager2.default.videoTempPath, "Hello Wonderland").then(function () {}).catch(function (e) {});
+            // dataManager.tiago
+            //   .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
+            //   .then(() => {})
+            //   .catch((e) => {});
           }
         });
         // NOTE: 加入房间连麦
@@ -204,7 +213,10 @@ cc.Class({
 
             _data_manager2.default.videoTempPath = res.videoPath;
             if (_data_manager2.default.tiago && _data_manager2.default.videoTempPath && _data_manager2.default.isGameEnd) {
-              _data_manager2.default.tiago.uploadVideo(_data_manager2.default.videoTempPath, "Hello Wonderland").then(function () {}).catch(function (e) {});
+              // dataManager.tiago
+              //   .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
+              //   .then(() => {})
+              //   .catch((e) => {});
             }
           });
         }
@@ -327,7 +339,10 @@ cc.Class({
             // do somethine;
             _data_manager2.default.videoTempPath = res.videoPath;
             if (_data_manager2.default.tiago && _data_manager2.default.videoTempPath && _data_manager2.default.isGameEnd) {
-              _data_manager2.default.tiago.uploadVideo(_data_manager2.default.videoTempPath, "Hello Wonderland").then(function () {}).catch(function (e) {});
+              // dataManager.tiago
+              //   .uploadVideo(dataManager.videoTempPath, "Hello Wonderland")
+              //   .then(() => {})
+              //   .catch((e) => {});
             }
           });
         }
